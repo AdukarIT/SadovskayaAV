@@ -12,58 +12,62 @@
 		<img src="img/inst.png" alt="Instagram">
 	</header>
 	<main>
-		<h2>Вход</h2>
 		<form method="post" name="entrance" action="feed.html">
-			<p>
-				<label>
-					Имя пользователя
-					<input type="text"  name="login" required>
-				</label>
-			</p>
-			<p>
-				<label>
-					Пароль
-					<input type="password" name="pwd" required>
-				</label>
-			</p>
-			<p>
+			<fieldset>
+				<legend>Вход</legend>
+				<p>
+					<label>
+						Имя пользователя
+						<input type="text"  name="login" required>
+					</label>
+				</p>
+				<p>
+					<label>
+						Пароль
+						<input type="password" name="pwd" required>
+					</label>
+				</p>
+				<p>
 					<input value="Вход" type="submit" name="send">
-			</p>
+				</p>
+			</fieldset>	
 		</form>
-		<h2>Регистрация</h2>
 		<form method="post" name="registration" action="feed.html">
-			<p>
-				<label>
-					Имя пользователя
-					<input type="text" name="name" required>
-				</label>
-			</p>
-			<p>
-				<label>
-					Эл. адрес
-					<input type="email" name="email" required>
-				</label>
-			</p>
-			<p>
-				<label>
-					Пароль
-					<input type="password" name="pwd" required>
-				</label>
-			</p>
-			<p>
-				<label>
-					Подтверждение пароля
-					<input type="password" name="password" required>
-				</label>
-			</p>
-			<p>
-				<label>Отметка о согласии с порядком обработки персональных данных
-					<input type="checkbox" name="consent" value="1" required>
-				</label>
-			</p>
-			<p>
-				<input value="Регистрация" type="submit" name="send">
-			</p>
+			<fieldset>
+				<legend>Регистрация</legend>
+				<p>
+					<label>
+						Имя пользователя
+						<input type="text" name="name" required>
+					</label>
+				</p>
+				<p>
+					<label>
+						Эл. адрес
+						<input type="email" name="email" required>
+					</label>
+				</p>
+				<p>
+					<label>
+						Пароль
+						<input type="password" name="pwd" required>
+					</label>
+				</p>
+				<p>
+					<label>
+						Подтверждение пароля
+						<input type="password" name="password" required>
+					</label>
+				</p>
+				<p>
+					<label>Отметка о согласии с порядком обработки персональных данных
+						<input type="checkbox" name="consent" value="1" required>
+					</label>
+				</p>
+				<p>
+					<input value="Регистрация" type="submit" name="send">
+				</p>
+			</fieldset>
 		</form>
 	</main>
 </body>
