@@ -8,6 +8,7 @@
 [Задание 2.  Сайт руководств по изучению иностранных языков](https://github.com/AdukarIT/SadovskayaAV/tree/master/HTML-advance/language%20shcool)  
 ## 4. Основы CSS
 [Реферат. Практика](https://github.com/AdukarIT/SadovskayaAV/blob/master/jsfiddle/essay.html)  
-
+## 5. Float. Псевдоклассы и составные селекторы
+[Задание 1. Форма заказа в интернет-магазине](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-blocks)  
 
 
