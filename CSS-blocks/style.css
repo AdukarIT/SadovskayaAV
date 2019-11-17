@@ -1,0 +1,122 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.logo{
+	width: 110px;
+	padding:  5px 20px;
+}
+h1{
+	color: white;
+	float: right;
+	padding-right: 50%;
+}
+.topmenu li{
+	position: relative;
+	display: inline;
+	margin: 0px 80px;
+	padding: 10px;
+}
+
+.topmenu li a{
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+}
+
+
+.topmenu{
+	margin: 0;
+}
+
+ul.submenu > li > a{
+	color: black;
+    display: block;
+    background-color: #edf4ff;
+    text-decoration: none;
+}
+
+ul.submenu > li > a:hover{
+	text-decoration: underline;
+}
+
+ul.submenu > li{
+	margin: 0;
+	padding: 0;
+}
+
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+
+.submenu{
+	display: none;
+	position: absolute;
+}
+.topmenu li:hover > ul{
+	display: block;
+	width: 300px;
+	line-height: 2em;
+}
+
+ul.topmenu > li {
+    float: left;
+    position: relative;
+}
+
+header{
+	height: 200px;
+	background: url(img/back.jpg) no-repeat;
+	background-size: 100%;
+	margin: 0;
+}
+main{
+	background-color: #d9cef5;
+	margin: 0;
+	padding: 10px;
+}
+
+fieldset>div{
+	margin: 10px;
+	padding: 10px;
+}
+
+
+#pickup + div.map{
+	display: none;
+}
+
+#pickup:checked + div.map {
+	display: block;
+}
+
+#address + div.direction{
+	display: none;
+}
+#address:checked + div.direction{
+	display: block;
+}
+
+
+iframe{
+	border: 0;
+
+}
+
+footer{
+	background-color: #ede8fa;
+}
+
+footer div{
+	float: left;
+	margin:20px 70px;
+}
+footer::after{
+	content: "";
+	clear: both;
+	display: block;
+}
