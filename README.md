@@ -10,5 +10,7 @@
 [Реферат. Практика](https://github.com/AdukarIT/SadovskayaAV/blob/master/jsfiddle/essay.html)  
 ## 5. Float. Псевдоклассы и составные селекторы
 [Задание 1. Форма заказа в интернет-магазине](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-blocks)  
+## 6. Изображения. Шрифты и иконки
+[Задание 1. Пляж](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/beach)  
 
 
