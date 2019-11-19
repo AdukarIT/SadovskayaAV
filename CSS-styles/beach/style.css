@@ -1,0 +1,11 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	height: 45vw;
+	background-image:  url(img/sun.png),url(img/sea.jpg), url(img/sky.jpg);
+	background-repeat: no-repeat;
+	background-size: 15%, 100% 50%, cover;
+	background-position: top right, center bottom, top center;
+	
