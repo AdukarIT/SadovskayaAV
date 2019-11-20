@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2019 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="heart" unicode="&#xe800;" d="M500-79q-14 0-25 10l-348 336q-5 5-15 15t-31 37-38 54-30 67-13 77q0 123 71 192t196 70q34 0 70-12t67-33 54-38 42-38q20 20 42 38t54 38 67 33 70 12q125 0 196-70t71-192q0-123-128-251l-347-335q-10-10-25-10z" horiz-adv-x="1000" />
+
+<glyph glyph-name="check" unicode="&#xe801;" d="M573-15l-417 0q-65 0-110 46t-46 110l0 418q0 65 46 110t110 46l260 0q22 0 37-16t16-36-16-37-37-16l-260 0q-21 0-37-15t-15-36l0-418q0-21 15-36t37-15l417 0q21 0 36 15t16 36l0 157q0 21 16 36t37 16 36-16 15-36l0-157q0-65-46-110t-110-46z m-148 218q-29 0-49 20l-138 138q-20 22-20 50t20 49 48 20 49-20l75-74 180 284q14 25 42 33t53-5 33-42-7-53l-225-364q-18-36-61-36z" horiz-adv-x="729" />
+
+<glyph glyph-name="check-outline" unicode="&#xe802;" d="M625 741q86 0 134-75t2-157l-32-57 0-336q0-65-46-111t-110-46l-417 0q-65 0-110 46t-46 111l0 417q0 65 46 111t110 45l354 0q45 52 115 52z m-45-130l-176-304-106 106q-15 15-38 15-21 0-36-15t-15-37 15-37l156-156q15-15 36-15 32 0 47 26l208 365q18 33-6 60t-61 13q-18-9-24-21z m-7-547q21 0 36 15t16 37l0 258-117-205q-30-53-92-53-42 0-73 31l-157 156q-31 31-31 74t31 74q30 30 74 30t74-30l59-59 112 192-349 0q-21 0-37-15t-15-36l0-417q0-22 15-37t37-15l417 0z" horiz-adv-x="783" />
+</font>
+</defs>
+</svg>
