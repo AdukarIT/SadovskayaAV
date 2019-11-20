@@ -12,5 +12,6 @@
 [Задание 1. Форма заказа в интернет-магазине](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-blocks)  
 ## 6. Изображения. Шрифты и иконки
 [Задание 1. Пляж](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/beach)  
+[Задание 2. Лайк](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/like)  
 
 
