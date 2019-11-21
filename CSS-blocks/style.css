@@ -61,6 +61,7 @@ ul:after {
 	display: block;
 	width: 300px;
 	line-height: 2em;
+	padding: 0;
 }
 
 ul.topmenu > li {
@@ -80,11 +81,15 @@ main{
 	padding: 10px;
 }
 
-fieldset>div{
+fieldset>label{
+	display: block;
 	margin: 10px;
 	padding: 10px;
 }
 
+label.delivery-method{
+	display: inline-block;
+}
 
 #pickup + div.map{
 	display: none;

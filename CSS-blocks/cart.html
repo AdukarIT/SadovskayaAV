@@ -7,7 +7,7 @@
 </head>
 <body>
 	<header>
-		<div class="header">
+		<div class="logo-name">
 			<img class="logo" src="img/logo.png" alt="Welcome">
 			<h1>TechStore</h1>
 		</div>
@@ -95,43 +95,34 @@
 				<legend>
 					Форма отправки заказа
 				</legend>
-				<div>
-					<label>
+				<label>
 						Фамилия и имя
-						<input type="text" name="name">
-					</label>
-				</div>
-				<div>
-					<label>
-						Номер телефона
-						<input type="tel" name="phone">
-					</label>
-				</div>
-				<div>
-					<label>
-						E-mail
-						<input type="email" name="email">
-					</label>
-				</div>
-				<div>
-					<label for="pickup">
+					<input type="text" name="name">
+				</label>
+				<label>
+					Номер телефона
+					<input type="tel" name="phone">
+				</label>
+				<label>
+					E-mail
+					<input type="email" name="email">
+				</label>
+					<label for="pickup" class="delivery-method">
 						Самовывоз со склада по адресу:
 					</label>
 					<input type="radio" name="delivery" value="pickup" id="pickup">
-					<div class="map">
+				<div class="map">
 						<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d4702.720993397054!2d27.51970892693219!3d53.88979622038584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e0!4m0!4m5!1s0x46dbd002b2ce9db3%3A0x474e8389a112c66d!2z0L_RgNC-0YHQv9C10LrRgiDQlNC30LXRgNC20LjQvdGB0LrQvtCz0L4gOSwg0JzQuNC90YHQuiAyMjAwODk!3m2!1d53.8897963!2d27.5240863!5e0!3m2!1sru!2sby!4v1573908234802!5m2!1sru!2sby" width="600" height="450" allowfullscreen=""></iframe>
-					</div>
 				</div>
-				<div>
-					<label for="address">
+				<br>
+					<label for="address" class="delivery-method">
 						Курьером по Минску
 					</label>
-					<input type="radio" name="delivery" value="courier" id="address">
+				<input type="radio" name="delivery" value="courier" id="address">
 					<div class="direction">
 						<fieldset>
 							<legend>Адресс доставки</legend>
-							<div>
-								<label>Город:
+							<label>Город:
 								<select size="1" name="city">
 									<option disabled>выберите город</option>
 									<option value="Минск" selected>Минск</option>
@@ -141,26 +132,19 @@
 									<option value="Могилёв">Могилёв</option>
 									<option value="Брест">Брест</option>
 								</select>
-								</label>	
-							</div>
-							<div>
-								<label>
+							</label>
+							<label>
 									Улица:
 									<input type="text" name="street">
-								</label>
-							</div>
-							<div>
-								<label>
+							</label>
+							<label>
 									Дом:
 									<input type="number" name="house">
-								</label>
-							</div>
-							<div>
-								<label>
+							</label>
+							<label>
 									Квартира:
-									<input type="number" name="door">
-								</label>
-							</div>
+								<input type="number" name="door">
+							</label>
 							<div>
 								<input type="submit" name="sent">
 							</div>
