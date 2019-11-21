@@ -1,0 +1,61 @@
+body{
+	padding: 0;
+	margin: 0;
+}
+h1{
+	font-style: italic;
+	margin: 0;
+	line-height: 1.5em;
+	background-color: #2b4346;
+	color: white;
+	text-align: center;
+}
+.header-item{
+	width: 30%;
+	float: left;
+	line-height: 6em;
+	height: 9em;
+}
+
+.header-item:first-child{
+	padding-left: 10%;
+
+}
+
+.container{
+	box-sizing: border-box;
+	margin: 0;
+	background-color: #31585deb;
+	width: 100%;
+	padding: 1% 1%;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.contacts{
+	line-height: 3em;
+}
+
+.contacts li{
+	list-style-type: none;
+}
+
+.nav-bar{
+	margin: 0;
+	padding: 0;
+	background-color: #5a8a86;
+}
+.nav-bar li{
+	list-style-type: none;
+	float: left;
+	padding: 1% 14%;
+}
+a{
+	text-decoration: none;
+	color: white;
+	font-weight: 900;
+}
