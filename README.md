@@ -15,4 +15,6 @@
 [Задание 2. Лайк](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/like)  
 [Задание 3. Чекбокс](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/checkbox)  
 [Задание 4. Header магазина](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/header)  
+## 7. Практика
+[Адаптивная вёрстка](https://github.com/AdukarIT/SadovskayaAV/tree/master/practice)  
 
