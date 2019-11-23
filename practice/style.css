@@ -1,0 +1,126 @@
+body{
+	margin: 0;
+}
+header{
+	background-image: url(img/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+
+.title{
+	margin: 0;
+	font-size: 3em;
+	color: white;
+	width: 46%;
+	float: right;
+	padding: 3%;
+	text-align: center;
+}
+
+.logo{
+	padding: 2% 4%;
+}
+
+h2{
+	text-align: center;
+	color: white;
+	margin: 0;
+	padding: 2%;
+}
+
+article{
+	font-weight: bold;
+	line-height: 2em;
+	font-style: italic;
+	padding: 1% 5% 5% 5%;
+}
+
+.photo{
+	margin: 2%;
+	width: 96%;
+}
+
+.menu{
+	font-weight: bold;
+	line-height: 2em;
+	padding: 1% 30%;
+}
+
+.menu ul{
+	padding: 0;
+}
+
+.menu li{
+	padding: 0;
+	text-align: center;
+}
+
+li{
+	list-style-type: none;
+	padding-right: 10px;
+}
+
+main a{
+	color: white;
+	text-decoration: none;
+}
+
+main{
+	color: white;
+	background-color: #ff73a6;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+ }
+
+
+footer ul{
+	text-align: center;
+}
+
+footer li{
+	text-align: center;
+	display: inline-block;
+}
+footer a{
+	text-decoration: none;
+}
+
+@media(min-width: 600px){
+	body{
+		font-size: 1.5em;
+	}
+	.menu{
+		margin: 4% 0 0 0;
+		padding:0;
+		line-height: 3em;
+		float: left;
+		width: 20%;
+	}
+	.content{
+		width: 80%;
+		float: right;
+	}
+
+	.logo{
+		padding: 3% 10%;
+	}
+	.title{
+	font-size: 3em;
+	}
+	.photo{
+		margin: 1%;
+		width: 45%
+	}
+
+}
+@media(min-width: 1000px){
+	.photo{
+		width: 22%;
+	}
+
+}
