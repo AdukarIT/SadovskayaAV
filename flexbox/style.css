@@ -1,0 +1,157 @@
+body{
+	font-family: 'Roboto',Arial,sans-serif;
+	color: white;
+	margin: 0;
+	line-height: 1.55;
+}
+body a{
+	color: white;
+	text-decoration: none;
+}
+
+header{ 
+	padding: 1%;
+	background-image:  linear-gradient(to top, rgba(0,0,0,0.6), rgba(46,18,18,0.7)), url('https://static.tildacdn.com/tild6535-3035-4530-b630-383061373964/kct-2019.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.contactInformation{
+	margin: 2%;
+	display: flex;
+	justify-content: space-between;
+}
+
+ul{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style-type: none;
+}
+
+.logo{
+	flex-grow: 1;
+	width: 150px;
+}
+.about{
+	flex-grow: 12;
+	font-size: 16px;
+}
+.about ul{
+	text-align: center;
+}
+
+.about ul li{
+	font-size: 17px;
+    font-weight: 700;
+	display: inline-block;
+	padding: 0 2%;
+}
+
+.about ul li:first-child{
+	margin-left: 15%;
+}
+
+.icon{
+	width: 29.7px;
+}
+
+.contact{
+	justify-content: space-around;
+	flex-grow: 1;
+	display: flex;
+}
+
+.phoneNumber{
+	align-self: center;
+}
+
+.socialNetworkIcons{
+	align-self: center;
+}
+
+
+h1{
+	font-size: 65px;
+	line-height: 1.45;
+	font-weight: 600;
+	text-align: center;
+	margin: 1% 23%;
+}
+
+.advantages{
+	margin: 2% 9% ;
+	display: flex;
+}
+
+.advantagesItem{
+	margin: 1% 2%;
+	display: flex;
+	font-size: 18px;
+	font-weight: 400;
+}
+p{
+	margin: 0;
+}
+
+
+.promise{
+	text-align: center;
+	margin: 3%;
+    font-weight: 300;
+    font-size: 24px;
+ 
+}
+
+.button{
+	background-color: #e55;
+	border-radius: 5px;
+	font-size: 14px;
+	margin: 2% 37% 5% 37%;
+	font-weight: 600;
+	padding: 1.5% 4%;
+}
+
+
+@media(max-width: 1000px){
+	h1{
+		font-size: 45px;
+	}
+}
+
+@media(max-width: 800px){
+	.advantages{
+		display: block;
+	}
+
+	.advantagesItem{
+		padding: 1%;
+	}
+	.about ul li:first-child {
+		margin-left: 0;
+	}
+	h1{
+		font-size: 40px;
+	}
+	.button{
+		margin: 2% 30% 2% 30%;
+	}
+}
+@media(max-width: 600px){
+	.contactInformation{
+		flex-direction: column;
+		align-items: center;
+	}
+	.contact{
+		flex-direction: column;
+		margin: 3%;
+	}
+	h1{
+		font-size: 30px;
+	}
+
+	.button{
+		margin: 2% 25% 2% 25%;
+	}
+}
