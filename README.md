@@ -17,4 +17,6 @@
 [Задание 4. Header магазина](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-styles/header)  
 ## 7. Практика
 [Адаптивная вёрстка](https://github.com/AdukarIT/SadovskayaAV/tree/master/practice)  
+## 8. Flexbox
+[Задание 1. Header для лэндинга курсов подготовкик ЦТ от Адукар](https://github.com/AdukarIT/SadovskayaAV/tree/master/flexbox/header%20Adukar)  
 
