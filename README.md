@@ -19,4 +19,5 @@
 [Адаптивная вёрстка](https://github.com/AdukarIT/SadovskayaAV/tree/master/practice)  
 ## 8. Flexbox
 [Задание 1. Header для лэндинга курсов подготовки к ЦТ от Адукар](https://github.com/AdukarIT/SadovskayaAV/tree/master/flexbox/header%20Adukar)  
+[Задание 2. Страница новостей ВКонтакте](https://github.com/AdukarIT/SadovskayaAV/tree/master/flexbox/vk)  
 
