@@ -81,8 +81,9 @@ h1{
 }
 
 .advantages{
-	margin: 2% 9% ;
+	margin: 2% 6% ;
 	display: flex;
+	justify-content: space-around;
 }
 
 .advantagesItem{
@@ -91,39 +92,66 @@ h1{
 	font-size: 18px;
 	font-weight: 400;
 }
-p{
+
+
+.advantages p{
+	padding-left: 3%;
 	margin: 0;
 }
 
 
+.advantagesItem:first-child p{
+	width: 260px;
+}
+
+.advantagesItem:nth-child(2) p{
+	width: 230px;
+}
+.advantagesItem:last-child p{
+	width: 248px;
+}
+
+
+
+
 .promise{
 	text-align: center;
-	margin: 3%;
+	margin: 3% 3% 1%;
     font-weight: 300;
     font-size: 24px;
  
 }
 
-.button{
+.containerButton{
+	display: flex;
+	justify-content: center;
+	margin: 2%;
+}
+
+button{
+	color: white;
 	background-color: #e55;
 	border-radius: 5px;
 	font-size: 14px;
-	margin: 2% 37% 5% 37%;
+	margin: 1% 37% 5% 37%;
 	font-weight: 600;
-	padding: 1.5% 4%;
+	padding: 1.5% 3%;
+	border: none;
 }
 
 
 @media(max-width: 1000px){
+
+	.advantages{
+	flex-direction: column;
+	align-items: center;
+}
 	h1{
 		font-size: 45px;
 	}
 }
 
 @media(max-width: 800px){
-	.advantages{
-		display: block;
-	}
 
 	.advantagesItem{
 		padding: 1%;
@@ -133,9 +161,6 @@ p{
 	}
 	h1{
 		font-size: 40px;
-	}
-	.button{
-		margin: 2% 30% 2% 30%;
 	}
 }
 @media(max-width: 600px){
@@ -150,8 +175,9 @@ p{
 	h1{
 		font-size: 30px;
 	}
-
-	.button{
-		margin: 2% 25% 2% 25%;
+	button{
+	font-size: 12px;
+	font-weight: 400;
 	}
+
 }
