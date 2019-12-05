@@ -1,0 +1,10 @@
+.screw{
+	width: 100px;
+	transition-property:all ;
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(0.01, 1.08, 1, 0.97);
+}
+
+.screw:hover{
+	transform: rotate(1080deg);
+}

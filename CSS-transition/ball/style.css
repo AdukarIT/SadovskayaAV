@@ -1,0 +1,35 @@
+.container{
+	height: 102px;
+	width: 1000px;
+	border: 3px solid black;
+    background-color: green;
+}
+
+
+ label {
+    width: 100px;
+    height: 100px;
+    display: block;
+    position: relative;
+}
+input[type="checkbox"]{
+	display: none;
+}
+
+input[type="checkbox"] + span {
+    position: absolute;
+    left: 0; 
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url(img/ball.png) no-repeat;
+    background-size: 100px;
+    cursor: pointer;
+    transition: transform cubic-bezier(0, 0, 0, 0.96) 2s, cubic-bezier(0.01, 0.28, 0.27, 1.03) 2s;;
+}
+
+input[type="checkbox"]:checked + span {
+   transform: translateX(900px) rotate(360deg);
+}
+
+ 
