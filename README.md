@@ -20,4 +20,8 @@
 ## 8. Flexbox
 [Задание 1. Header для лэндинга курсов подготовки к ЦТ от Адукар](https://github.com/AdukarIT/SadovskayaAV/tree/master/flexbox/header%20Adukar)  
 [Задание 2. Страница новостей ВКонтакте](https://github.com/AdukarIT/SadovskayaAV/tree/master/flexbox/vk)  
+##9.Эффекты. Анимация
+[Задание 1. Прыгающий мяч](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/ball)  
+[Задание 2. Вентилятор](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/ventilator)  
+[Задание 3. Спрайты](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/SubZero)  
 
