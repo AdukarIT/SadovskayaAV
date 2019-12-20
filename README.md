@@ -24,6 +24,6 @@
 [Задание 1. Прыгающий мяч](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/ball)  
 [Задание 2. Вентилятор](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/ventilator)  
 [Задание 3. Спрайты](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/SubZero)  
-## 10. SCSS.
+## 10. SCSS
 [Задание 1. Design Club](https://github.com/AdukarIT/SadovskayaAV/tree/master/sass_file_organization)  
 
