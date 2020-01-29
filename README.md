@@ -28,6 +28,11 @@
 [Задание 1. Design Club](https://github.com/AdukarIT/SadovskayaAV/tree/master/sass_file_organization)  
 ## 11. Логические операторы. Условные операторы. Циклы
 [Задание 1.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/firstTask.html)  
-[Задание 2.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/secondTask.html)  
+[Задание 2.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/secondTask.html) 
+[Задание 3.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/thirdTask.html)  
+[Задание 4.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/fourthTask.html) 
+[Задание 5.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/fifthTask.html)  
+[Задание 6.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/sixthTask.html)  
+[Задание 7.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/seventhTask.html)  
 
 
