@@ -26,7 +26,7 @@
 [Задание 3. Спрайты](https://github.com/AdukarIT/SadovskayaAV/tree/master/CSS-transition/SubZero)  
 ## 10. SCSS
 [Задание 1. Design Club](https://github.com/AdukarIT/SadovskayaAV/tree/master/sass_file_organization)  
-### JavaScript  
+# JavaScript  
 ## 11. Логические операторы. Условные операторы. Циклы
 [Задание 1.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/firstTask.html)  
 [Задание 2.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/secondTask.html)  
