@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>first</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script>
+		let x = +prompt("Введите номер квартиры");
+		if ( x <= 0 || x > 100 ) {
+			console.log("Такой квартиры не существует");
+		}
+		else{
+			console.log(Math.ceil(x/20));
+		}
+	</script>
+</body>
+</html>

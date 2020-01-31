@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<!-- <script>
+		let x = +prompt("Введите число");
+		let y = +prompt("Введите ещё число");
+		let z = +prompt("Введите ещё число");
+		if (x>y && x>z) {
+			console.log(x)
+		}
+		else if(y>x && y>z){
+			console.log(y)
+		}
+		else{
+			console.log(z)
+		}
+	</script> 
+	<script>
+		let x = prompt("Введите любое число");
+		let y = prompt("Введите ещё число");
+		(x > y) ? console.log(x): console.log(y); 
+	</script>
+	<script>
+		let a = +prompt("Введите любое число");
+		switch(a){
+			case 1:
+			console.log("оригинальная фраза 1");
+			break;
+			case 2:
+			console.log("оригинальная фраза 2");
+			break;
+			case 3:
+			console.log("оригинальная фраза 3");
+			break;
+			case 4:
+			console.log("оригинальная фраза 4");
+			break;
+			case 5:
+			console.log("оригинальная фраза 5");
+			break;
+			default:
+			console.log("обычная фраза")
+		}
+		-->
+		<!-- <script>
+			let n = 3;
+			for (var i = 10; i > 0; i--) {
+				if (i = n)
+					break;
+				console.log(i);
+		}
+
+		</script>
+		 -->
+		<!-- <script>
+			let x = +prompt("Введите любое число");
+			for (let i = 2; i <= x; i++) {
+				let k;
+				for (k = 2; k < i; k++) {
+					if (i % k == 0)
+						break;
+				}
+
+				if (i == k) 
+					console.log( "простое число - " + i);	
+			}
+		</script> -->
+	<!-- <script>
+		let x = +prompt("Введите любое число");
+		for (let i = x; i > 0; i--) {
+			if (!( i % 2)) {
+				console.log(i)
+			}
+		}
+	</script> -->
+	<!-- <script>
+		let x = +prompt("Введите номер квартиры");
+		if ( x > 0 && x <= 20 ) {
+			console.log("Первый подъезд");
+		}
+		else if ( x > 20 && x <= 40 ) {
+			console.log("Второй подъезд");
+		}
+		else if ( x > 40 && x <= 60 ) {
+			console.log("Третий подъезд");
+		}
+		else if ( x > 60 && x <= 80 ) {
+			console.log("Четвёртый подъезд");
+		}
+		else if ( x > 80 && x <= 100 ) {
+			console.log("Пятый подъезд");
+		}
+		else{
+			console.log("Такой квартиры не существует")
+		}
+	</script> -->
+	<!-- <script>
+		let x = +prompt("Введите номер квартиры");
+		if ( x <= 0 || x > 100 ) {
+			console.log("Такой квартиры не существует");
+		}
+		else{
+			console.log(Math.ceil(x/20));
+		}
+	</script> -->
+	<script>
+		function isPrime(n) {
+	  		for (let i = 2; i < n; i++) {
+	    		if ( n % i == 0) return false;
+	    }
+	  	return true;
+	  }
+	  alert(isPrime(17));
+	</script>
+</body>
+</html>
