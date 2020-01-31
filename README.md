@@ -35,5 +35,7 @@
 [Задание 5.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/fifthTask.html)  
 [Задание 6.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/sixthTask.html)  
 [Задание 7.](https://github.com/AdukarIT/SadovskayaAV/blob/master/Operators.Cycles/seventhTask.html)  
+## 11. Функции
+[Задания 1-5.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/functions/script.js)  
 
 
