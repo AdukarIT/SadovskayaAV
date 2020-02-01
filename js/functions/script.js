@@ -34,5 +34,25 @@ function getFactorial(n){
 }
 console.log(getFactorial(4));
 
-	// *  *  *  *  * //
 
+	// *  *  *  *  * //
+    
+
+function getInvertedNum(num) {
+  let result = (num % 10); //последняя цифра
+  num = (num - result)/10; // оставшааяся цифра
+  
+  let deg = 0;
+  let je = num;
+  while(je > 1){
+  	je = je / 10;
+  	deg++;
+  }
+
+  if(num){
+  	result = (result * (10 ** deg)) + getInvertedNum(num);	
+  }
+
+  return result;
+}
+console.log(getInvertedNum(3909))
