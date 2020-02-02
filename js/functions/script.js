@@ -57,7 +57,7 @@ console.log(getInvertedNum(3909))
 
 		// *  *  *  *  * //
 
-//ax**2 + bx + c = 0;
+
 function quadratic(a ,b ,c){
 	let d = b**2 - (4 * a * c);
 	
@@ -72,7 +72,7 @@ function quadratic(a ,b ,c){
 		return 1;
 	}
 	
-	console.log((x);
+	console.log(x);
 	console.log((- b - Math.sqrt(d)) / (2 * a));
 	return 2;
 }
