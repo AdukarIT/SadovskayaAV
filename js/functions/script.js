@@ -2,12 +2,10 @@ function getSmallest(a,b,c){
 	if ( a < b && a < c) {
 		return a;
 	}
-	else if ( b < a && b < c) {
+	if ( b < a && b < c) {
 		return b;
 	}
-	else{
 		return c;
-	}
 }
 	console.log(getSmallest(3,6,10));
 
@@ -28,9 +26,7 @@ function getFactorial(n){
 	if (n === 1) {
 		return n;
 	}
-	else {
-		return (n * getFactorial(n-1));
-	}
+	return (n * getFactorial(n-1));
 }
 console.log(getFactorial(4));
 
@@ -39,13 +35,14 @@ console.log(getFactorial(4));
     
 
 function getInvertedNum(num) {
-  let result = (num % 10); //последняя цифра
-  num = (num - result)/10; // оставшааяся цифра
+	num = Math.abs(num)	
+  let result = (num % 10); 
+  num = (num - result)/10; 
   
   let deg = 0;
-  let je = num;
-  while(je > 1){
-  	je = je / 10;
+  let temp = num;
+  while(temp > 1){
+  	temp = temp / 10;
   	deg++;
   }
 
@@ -56,3 +53,27 @@ function getInvertedNum(num) {
   return result;
 }
 console.log(getInvertedNum(3909))
+
+
+		// *  *  *  *  * //
+
+//ax**2 + bx + c = 0;
+function quadratic(a ,b ,c){
+	let d = b**2 - (4 * a * c);
+	
+	if (d < 0){
+		console.log("корней нет");
+		return 0;
+	}
+
+	let x = (-b + Math.sqrt(d)) / (2 * a);
+	if( d === 0 ){
+		console.log(x)
+		return 1;
+	}
+	
+	console.log((x);
+	console.log((- b - Math.sqrt(d)) / (2 * a));
+	return 2;
+}
+quadratic(1,2,1);
