@@ -1,13 +1,13 @@
 function getSmallest(a,b,c){
-	if ( a < b && a < c) {
+	if ( a < b && a < c || a == b && a < c) {
 		return a;
 	}
-	if ( b < a && b < c) {
+	if ( b < a && b < c  || b == c &&  b < a) {
 		return b;
 	}
 		return c;
 }
-	console.log(getSmallest(3,6,10));
+	console.log(getSmallest(9,3,3));
 
 
 	// *  *  *  *  * //
