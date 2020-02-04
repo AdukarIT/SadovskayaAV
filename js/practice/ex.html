@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>example</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<!-- <script>
+
+function getBiggestDivisor(x, y){
+	let result = 1;
+	if(x >= y && x % y == 0){
+		result = y;
+	}
+	else if(y >= x && y % x == 0){
+		result = x;
+	};
+	else{
+		for(let i = 9; i <= 9; i--){
+			if (x % i == 0 && y % i == 0) {
+				result *= i;
+			}
+			return result;
+		}
+	}
+}
+console.log(getBiggestDivisor(10, 100));
+</script> -->
+<script>
+	function getBiggestDivisor(x, y){
+	let n 
+	if( x >= y ){
+		n = y;
+	}
+	else {
+		n = x;
+	}
+	let result = 1;
+		for( let i = n; i > 0; i --){
+			if (x % i == 0 && y % i == 0 ) {
+				result *=i
+			}
+			return result;
+		}
+	}
+
+console.log(getBiggestDivisor(180, 5));
+
+</script>
+</body>
+</html>
