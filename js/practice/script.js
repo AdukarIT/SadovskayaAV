@@ -237,3 +237,56 @@ function getBiggestDivisor(x, y){
 }
 
 console.log(getBiggestDivisor(180, 5));
+	
+
+	// *  *  *  * //
+		//task 14
+
+function getBiggestDivisor2(x, y){
+  if (x == y) {
+    return x;
+  }
+
+  if( y > x ){
+    return getBiggestDivisor2(y, x)
+  }
+
+  return getBiggestDivisor2(Math.abs(x - y), Math.abs(y));
+}
+console.log(getBiggestDivisor2(-70, 60));
+
+	// *  *  *  * //
+		//task 15
+
+function getEnding(x){
+	if (x == 1 && x!==11 && x % 10 ==1) {
+		console.log(x + " карандаш");
+	}
+	else if ( x >= 2 && x <= 4 && x!==12 && x % 10 == 2 || x % 10 == 3 || x % 10 == 4 ) {
+		console.log(x + " карандаша");
+	}
+	else{
+		console.log(x + " карандашей");
+	}
+}
+
+console.log(getEnding(33))
+
+	// *  *  *  * //
+		//task 16
+
+function getSumSq(n){
+	let h = false;
+	for(let i = 9; i >= 1; i--){
+		for(let f = i; f >= 1; f--){
+			if (i**2 + f**2 === n) {
+				console.log( "квадрат " + i + " + " + " квадрат " + f + " = " + n);
+				h = true;
+			}
+		}
+	}
+	if (!h) {
+		console.log("нельзя")
+	}
+}
+getSumSq(50);
