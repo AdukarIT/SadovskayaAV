@@ -243,17 +243,17 @@ console.log(getBiggestDivisor(180, 5));
 		//task 14
 
 function getBiggestDivisor2(x, y){
-  if (x == y) {
-    return x;
-  }
 
+  console.log(x, y)
   if( y > x ){
     return getBiggestDivisor2(y, x)
   }
-
+  if (x % y == 0) {
+    return y;
+  }
   return getBiggestDivisor2(Math.abs(x - y), Math.abs(y));
 }
-console.log(getBiggestDivisor2(-70, 60));
+console.log(getBiggestDivisor2(12, 60));
 
 	// *  *  *  * //
 		//task 15
