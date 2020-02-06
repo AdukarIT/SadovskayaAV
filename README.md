@@ -38,5 +38,7 @@
 ## 11. Функции
 [Задания 1-5.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/functions/script.js)  
 [Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/practice/script.js)  
+## 11.Массивы
+[Задания 1-6.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/array/script.js)  
 
 
