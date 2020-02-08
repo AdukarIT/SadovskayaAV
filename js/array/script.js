@@ -92,7 +92,7 @@ console.groupEnd();
 
 
 //task 6 
-console.group('task5: Sum elements of two arrays')
+console.group('task6: Sort the array using the bubble method')
 function getSum(array){
 	for (let i = 0; i < array.length - 1; i++) {
         for (let j = 0; j < array.length - 1 - i ; j++) {
