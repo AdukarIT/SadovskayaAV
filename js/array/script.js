@@ -76,3 +76,16 @@ function replaceZeros(array){
 console.log("Result: ", replaceZeros(getRandomArray()))
 console.groupEnd();
 
+//task 5 
+console.group('task5: Sum elements of two arrays')
+function getSum(array1, array2){
+	let res = 0;
+	let sum = [];
+	for(let i = 0; i < array1.length; i++){
+		res = array1[i] + array2[array2.length  - 1 - i];
+		sum.push(res);
+	}
+	return sum;
+}
+console.log("Result: ", getSum(getRandomArray(), getRandomArray()))
+console.groupEnd();
