@@ -1,4 +1,4 @@
-## 1. Введение в Web-разработку
+﻿## 1. Введение в Web-разработку
 [Задание 1. Jsfiddle](https://github.com/AdukarIT/SadovskayaAV/tree/master/jsfiddle)  
 ## 2. Основы HTML
 [Задание 1. Сервис ремонта мобильных телефонов](https://github.com/AdukarIT/SadovskayaAV/tree/master/HTML-bases/repair%20service)  
@@ -38,7 +38,7 @@
 ## 11. Функции
 [Задания 1-5.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/functions/script.js)  
 [Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/practice/script.js)  
-## 11.Массивы
+## 12. Массивы
 [Задания 1-6.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/array/script.js)  
 
 
