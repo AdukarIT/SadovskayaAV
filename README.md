@@ -40,5 +40,8 @@
 [Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/practice/script.js)  
 ## 12. Массивы
 [Задания 1-6.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/array/script.js)  
+## 13. Объекты
+[Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/objects/practice/script.js)  
+[Задания 1-4.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/objects/homework/script.js)  
 
 
