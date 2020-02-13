@@ -45,3 +45,6 @@ function getPalindrome(str){
 }
 console.log(getPalindrome("А роза упала на лапу Азора"));
 console.groupEnd();
+
+console.group('task4: function that determines if a string is a palindrome');
+console.groupEnd();
