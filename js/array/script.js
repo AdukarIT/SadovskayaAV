@@ -109,3 +109,4 @@ function getSum(array){
 }
 console.log("Result: ", getSum(getRandomArray()))
 console.groupEnd();
+

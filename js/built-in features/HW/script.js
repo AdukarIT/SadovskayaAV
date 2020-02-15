@@ -137,30 +137,65 @@ console.groupEnd();
 
 
 //8
-let now = new Date();
-now = now.getDay();
-switch (now){
-    case 1:
-        console.log("понедельник");
-        break;
-    case 2:
-        console.log("вторник");
-        break;
-    case 3:
-        console.log("среда");
-        break;
-    case 4:
-        console.log("четверг");
-        break;
-    case 5:
-        console.log("пятница");
-        break;
-    case 6:
-        console.log("суббота");
-        break;
-    case 0:
-        console.log("воскресение");
-        break;
+console.group("task8: get the current day of the week ");
+function getDay1() {
+    let now = new Date();
+    now = now.getDay();
+    switch (now) {
+        case 1:
+            console.log("понедельник");
+            break;
+        case 2:
+            console.log("вторник");
+            break;
+        case 3:
+            console.log("среда");
+            break;
+        case 4:
+            console.log("четверг");
+            break;
+        case 5:
+            console.log("пятница");
+            break;
+        case 6:
+            console.log("суббота");
+            break;
+        case 0:
+            console.log("воскресение");
+            break;
+    }
 }
+getDay1();
+console.groupEnd();
 
  //9
+console.group("task9: accept the date and get the day of the week ");
+
+function getDay2(date) {
+    let day = (new Date(+date.slice(6, 10), +date.slice(3, 5) - 1, +date.slice(0, 2))).getDay();
+    switch(day) {
+        case 1:
+            console.log("понедельник");
+            break;
+        case 2:
+            console.log("вторник");
+            break;
+        case 3:
+            console.log("среда");
+            break;
+        case 4:
+            console.log("четверг");
+            break;
+        case 5:
+            console.log("пятница");
+            break;
+        case 6:
+            console.log("суббота");
+            break;
+        case 0:
+            console.log("воскресение");
+            break;
+    }
+}
+console.log(getDay2(prompt("введите дату в формате \"ДД-ММ-ГГГГ\"")));
+console.groupEnd();
