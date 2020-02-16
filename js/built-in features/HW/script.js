@@ -199,3 +199,21 @@ function getDay2(date) {
 }
 console.log(getDay2(prompt("введите дату в формате \"ДД-ММ-ГГГГ\"")));
 console.groupEnd();
+
+//10
+
+console.group("task10: get the number of days until next birthday");
+function daysBefore(date){
+    let birthday = (new Date(+date.slice(6, 10), +date.slice(3, 5) - 1, +date.slice(0, 2)));
+    let now = new Date();
+    let amount = 0;
+    birthday.setFullYear(now.getFullYear());
+    if (now > birthday) {
+        birthday.setFullYear(now.getFullYear() + 1);
+    }
+    amount = Math.floor((birthday - now) / (1000*60*60*24));
+    return amount;
+}
+console.log(daysBefore(prompt("введите день рождения в формате \"ДД-ММ-ГГГГ\"")));
+console.groupEnd();
+
