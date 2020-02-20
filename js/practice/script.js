@@ -1,6 +1,6 @@
 // task 1
 function triangle(a, b, c){
-	if (a**2 + b**2 === c**2 && a,b,c > 0) {
+	if (a**2 + b**2 === c**2 && a > 0, b > 0, c > 0) {
 		return true;
 	}
 	return false;
@@ -98,6 +98,7 @@ acceptNumber();
 function getAmount(){
 	let sum = 0;
 	let amount = 0;
+	let x;
 	do{
 		x = +prompt("Введите число");
 		sum += x;
@@ -116,7 +117,7 @@ getAmount();
 	//task 7
 
 function getPrimeNumber(x){
-	for (i = 2; i < x; i++) {
+	for (let i = 2; i < Math.sqrt(x); i++) {
 		if (x % i == 0) {
 			console.log("число не является простым")
 			return;
@@ -220,7 +221,7 @@ getBytes(2, "Мб");
 
 
 function getBiggestDivisor(x, y){
-	let n 
+	let n;
 	if( x >= y ){
 		n = y;
 	}
@@ -230,9 +231,8 @@ function getBiggestDivisor(x, y){
 	let result = 1;
 	for( let i = n; i > 0; i --){
 		if (x % i == 0 && y % i == 0 ) {
-			result *=i
+			return result;
 		}
-		return result;
 	}
 }
 
@@ -262,7 +262,7 @@ function getEnding(x){
 	if (x == 1 && x!==11 && x % 10 ==1) {
 		console.log(x + " карандаш");
 	}
-	else if ( x >= 2 && x <= 4 && x!==12 && x % 10 == 2 || x % 10 == 3 || x % 10 == 4 ) {
+	else if ( x >= 2 && x <= 4 && x!==12 && (x % 10 == 2 || x % 10 == 3 || x % 10 == 4) ) {
 		console.log(x + " карандаша");
 	}
 	else{
@@ -270,7 +270,7 @@ function getEnding(x){
 	}
 }
 
-console.log(getEnding(33))
+console.log(getEnding(33))82 101
 
 	// *  *  *  * //
 		//task 16

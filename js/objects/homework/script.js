@@ -23,7 +23,6 @@ let recipe = {
 }
 
 function getRecipe(){
-    for (let prop in recipe );
     for (let propIng in recipe.ingredients )
         console.log(propIng + " " +  recipe.ingredients[propIng]/recipe.portions +  ' gram')
 }
