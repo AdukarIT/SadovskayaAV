@@ -43,5 +43,8 @@
 ## 13. Объекты
 [Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/objects/practice/script.js)  
 [Задания 1-4.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/objects/homework/script.js)  
+##14. Встроенные возможности JavaScript
+[Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/built-in%20features/practice/script.js)  
+[Задания 1-10](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/built-in%20features/HW/script.js)  
 
 
