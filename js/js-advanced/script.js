@@ -33,5 +33,10 @@ console.groupEnd();
 //3
 console.group(" task3: Filter the array of cities so that only cities from the state of California that grew " +
     "in population from 2000 to 2013 are left in it.");
-
+let newArr = [];
+newArr = data.filter(function(elem){
+    return (elem.state == "California" && parseFloat(elem.growth_from_2000_to_2013) > 0);
+});
+console.log(newArr);
 console.groupEnd();
+
