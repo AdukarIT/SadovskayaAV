@@ -40,3 +40,16 @@ newArr = data.filter(function(elem){
 console.log(newArr);
 console.groupEnd();
 
+//4
+console.group("task4: Calculate how many millions of people live in all cities at latitudes of 25 to 30 degrees");
+let amountOfPopulation = 0;
+newArr = data.filter(function (elem) {
+    return(elem.latitude > 25 && elem.latitude  < 30);
+});
+console.log(newArr);
+let sum = 0;
+for (let i = 0; i < newArr.length; i++){
+   sum += parseInt(newArr[i].population);
+}
+console.log(sum);
+console.groupEnd();
