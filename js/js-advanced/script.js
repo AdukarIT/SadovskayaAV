@@ -43,13 +43,29 @@ console.groupEnd();
 //4
 console.group("task4: Calculate how many millions of people live in all cities at latitudes of 25 to 30 degrees");
 let amountOfPopulation = 0;
-newArr = data.filter(function (elem) {
+let newArr2 = data.filter(function (elem) {
     return(elem.latitude > 25 && elem.latitude  < 30);
 });
-console.log(newArr);
 let sum = 0;
-for (let i = 0; i < newArr.length; i++){
-   sum += parseInt(newArr[i].population);
+for (let i = 0; i < newArr2.length; i++){
+   sum += parseInt(newArr2[i].population);
 }
-console.log(sum);
+console.log(Math.floor(sum/1000000));
+console.groupEnd();
+
+//5
+console.group("task5: Create an array of only those cities that begin with the letter D, while sorting the elements of this array by city name.");
+let newArr3 = data.filter(function (elem) {
+    return (elem.city.indexOf("D") == 0);
+});
+newArr3.sort(function (a, b) {
+    if (a.city > b.city) {
+        return 1;
+    }
+    if (a.city < b.city) {
+        return -1;
+    }
+    return 0;
+});
+console.log(newArr3);
 console.groupEnd();
