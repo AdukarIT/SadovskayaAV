@@ -46,5 +46,6 @@
 ## 14. Встроенные возможности JavaScript
 [Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/built-in%20features/practice/script.js)  
 [Задания 1-10](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/built-in%20features/HW/script.js)  
-
+## 15. Продвинутый JS
+[Задания 1- 6](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/js-advanced/script.js)  
 
