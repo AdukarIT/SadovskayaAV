@@ -69,3 +69,24 @@ newArr3.sort(function (a, b) {
 });
 console.log(newArr3);
 console.groupEnd();
+
+//6
+console.group("task6: Convert this array of \"Cities\" to the object \"States\"");
+function arrToObj(cities){
+    const states = {};
+    for(let prop in cities){
+        let city = cities[prop];
+        let state = city.state;
+        if(!( state in states)){
+            states[state] = [];
+        }
+        states[state].push({
+            city: city.city,
+            population: city.population,
+            rank: city.rank,
+        })
+    }
+    return states;
+}
+console.log(arrToObj(data));
+console.groupEnd();
