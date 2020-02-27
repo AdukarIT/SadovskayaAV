@@ -19,5 +19,11 @@ function createUl() {
         ul.append(li);
     }
 }
-console.log(createUl());
+createUl();
+
+//5
+
+let text =  document.getElementById("elem").previousElementSibling;
+text.textContent += "!";
+console.log(text.textContent);
 
