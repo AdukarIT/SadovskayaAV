@@ -47,5 +47,8 @@
 [Практика.](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/built-in%20features/practice/script.js)  
 [Задания 1-10](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/built-in%20features/HW/script.js)  
 ## 15. Продвинутый JS
-[Задания 1- 6](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/js-advanced/script.js)  
+[Задания 1 - 6](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/js-advanced/script.js)  
+## 16.  DOM. Работа со страницей
+[Практика](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/DOM/practice/index.html)    
+[Задания 1 - 7](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/DOM/HW/script.js)  
 
