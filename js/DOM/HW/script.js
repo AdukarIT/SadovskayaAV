@@ -27,3 +27,13 @@ let text =  document.getElementById("elem").previousElementSibling;
 text.textContent += "!";
 console.log(text.textContent);
 
+//6
+ function wrapInParagraph() {
+     let div = document.getElementById("div");
+     let p = document.createElement('p');
+     p.innerHTML = div.textContent;
+     div.innerHTML = p.outerHTML;
+     console.log(div);
+ }
+ wrapInParagraph();
+
