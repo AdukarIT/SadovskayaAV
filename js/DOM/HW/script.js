@@ -37,3 +37,18 @@ console.log(text.textContent);
  }
  wrapInParagraph();
 
+//7
+function normalizeClassNames(block) {
+    let elems = block.children;
+    elems = Array.prototype.slice.call(elems);
+    elems.forEach(function (item, i) {
+        if(item.className.includes("-")){
+            let parts = item.className.split('-');
+            for (let i = 1; i < parts.length; i ++){
+                parts[1] = parts[1].charAt(0).toUpperCase() + parts[i].slice(1);
+            }
+            item.className = parts.join('');
+        }
+    });
+}
+normalizeClassNames(document.body);
