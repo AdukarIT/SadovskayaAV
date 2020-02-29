@@ -4,6 +4,6 @@ button.onclick = function () {
 };
 
 button2.onclick = function () {
-    button2.innerText = "Изменённый текст"
+    button2.innerText = "button"
 };
 
