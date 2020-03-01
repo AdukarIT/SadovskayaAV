@@ -52,5 +52,5 @@
 [Практика](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/DOM/practice/index.html)    
 [Задания 1 - 7](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/DOM/HW/script.js)  
 ## 17. События. Координаты на странице
-[Практика]
+[Практика](https://github.com/AdukarIT/SadovskayaAV/blob/master/js/events/practice/practice%202/script.js)  
 
