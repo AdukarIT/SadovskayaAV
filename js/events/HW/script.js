@@ -24,6 +24,16 @@ table.onclick = function () {
             table.classList.add("highlight");
             counter = 0;
             return;
-    };
+    }
     counter++;
+};
+
+//4
+let button4 = document.getElementById("buttonTask4");
+button4.onclick = function () {
+    alert(this.innerHTML)
+};
+let cancellation = document.getElementById("cancellation");
+cancellation.onclick = function () {
+    button4.onclick = "return false";
 };
