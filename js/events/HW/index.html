@@ -3,10 +3,40 @@
 <head>
     <title>events HW</title>
     <meta charset="utf-8">
+    <style>
+        .bordered{
+            border: 1px solid #000000;
+        }
+        .striped tbody tr:nth-child(odd){
+            background: #ff73a6;
+        }
+        .highlight{
+            border: 3px solid gold;
+        }
+    </style>
 </head>
 <body>
     <input type="text" id="input">
     <button id="button">кнопка</button>
+    <table id="table">
+        <tbody>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+            </tr>
+            <tr>
+                <td>Иванов</td>
+                <td>Иван</td>
+                <td>Иванович</td>
+            </tr>
+            <tr>
+                <td>Петров</td>
+                <td>Пётр</td>
+                <td>Петрович</td>
+            </tr>
+        </tbody>
+    </table>
     <script src="script.js">
     </script>
 </body>
