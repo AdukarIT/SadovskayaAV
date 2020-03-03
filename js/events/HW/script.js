@@ -37,3 +37,10 @@ let cancellation = document.getElementById("cancellation");
 cancellation.onclick = function () {
     button4.onclick = "return false";
 };
+
+//5
+let div = document.getElementById("div");
+let p = document.getElementById("p");
+this.onclick = function (e) {
+    console.log(Object.getPrototypeOf(e.target));
+};
