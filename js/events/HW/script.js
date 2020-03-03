@@ -28,6 +28,25 @@ table.onclick = function () {
     counter++;
 };
 
+
+//3
+let b1 = document.getElementById("b1");
+let b2 = document.getElementById("b2");
+let b3 = document.getElementById("b3");
+b1.onchange = function(){
+    table.classList.remove("highlight");
+    table.classList.add("bordered");
+};
+b2.onchange = function(){
+    table.classList.remove("bordered");
+    table.classList.add("striped");
+};
+b3.onchange = function(){
+    table.classList.remove("striped");
+    table.classList.add("highlight");
+};
+
+
 //4
 let button4 = document.getElementById("buttonTask4");
 button4.onclick = function () {
@@ -37,6 +56,7 @@ let cancellation = document.getElementById("cancellation");
 cancellation.onclick = function () {
     button4.onclick = "return false";
 };
+
 
 //5
 let div = document.getElementById("div");
@@ -54,4 +74,4 @@ imgContainer.onmouseout = function () {
 imgContainer.onmouseover = function () {
     this.classList.remove("cat2");
     this.classList.add("cat1")
-}
+};
