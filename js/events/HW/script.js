@@ -44,3 +44,14 @@ let p = document.getElementById("p");
 this.onclick = function (e) {
     console.log(Object.getPrototypeOf(e.target));
 };
+
+//6
+let imgContainer = document.getElementById("container");
+imgContainer.onmouseout = function () {
+    this.classList.remove("cat1");
+    this.classList.add("cat2")
+};
+imgContainer.onmouseover = function () {
+    this.classList.remove("cat2");
+    this.classList.add("cat1")
+}
