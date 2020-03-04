@@ -75,3 +75,19 @@ imgContainer.onmouseover = function () {
     this.classList.remove("cat2");
     this.classList.add("cat1")
 };
+
+//7
+let imgs = document.getElementsByClassName("img");
+let container = document.getElementById("imgCont");
+let dark = document.getElementById("dark");
+for (let img of imgs){
+    img.onclick = function (e) {
+        e.target.classList.add("front");
+        dark.classList.add("dark")
+    };
+}
+dark.onclick = function () {
+    let front = document.getElementsByClassName("front");
+    front[0].classList.remove("front");
+    dark.classList.remove("dark")
+};
