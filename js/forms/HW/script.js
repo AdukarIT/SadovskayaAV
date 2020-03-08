@@ -24,14 +24,16 @@ form2.onsubmit = function validate2() {
         switch (input.type) {
             case "email":
                 if (!(/^.{0,100}@[\w\-]{2,20}\.[a-z]{2,15}$/i.test(input.value))) {
-                    console.log("wrong email")
+                    console.log("wrong email");
+                    input.classList.add("wrong");
                     return false;
                 }
                 break;
             case "number":
-                if (!(/^\d+$/.test(input.value))) {
-                console.log("wrong number");
-                return false;
+                if (!(/^-?\d+$/.test(input.value))) {
+                    input.classList.add("wrong");
+                    console.log("wrong number");
+                    return false;
                 }
                 break;
             case "text":
@@ -42,7 +44,7 @@ form2.onsubmit = function validate2() {
                 }
         }
     }
-    return false;
+    alert("ok");
 };
 
 
