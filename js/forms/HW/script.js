@@ -52,3 +52,10 @@ form2.onsubmit = function validate2() {
 let str = "Написать скрипт, который заменяет слово 'функция' в тексте на 'функция', используя регулярные выражения";
 str = str.replace(new RegExp("функция",'g'),"function");
 console.log(str);
+
+//6
+function timeValid (time) {
+    let re = /^([1-9]|1[0-2])\.[0-5][0-9]\s[ap]m$/i;
+    return re.test(time)
+}
+console.log(timeValid("7.30 pm"));

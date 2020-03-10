@@ -63,5 +63,18 @@ let db = [{
 
         },
     ]
-
-};
+},{
+        name: 'Грегори Дэвид Робертс',
+        birthday: '21-06-1952',
+        deathdate: '',
+        country: 'Австралия',
+        photo:'http://www.cablook.com/wp-content/uploads/2014/08/GregLowRes03.jpg',
+        "books":[
+            {
+                "name": 'Шантарам',
+                "published": 2003,
+                "cover": 'https://s4-goods.ozstatic.by/2000/306/97/1/1097306_0.jpg',
+                "genre": ['роман'],
+            }
+        ]
+    };
