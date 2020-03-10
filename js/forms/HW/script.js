@@ -48,3 +48,7 @@ form2.onsubmit = function validate2() {
 };
 
 
+//5
+let str = "Написать скрипт, который заменяет слово 'функция' в тексте на 'функция', используя регулярные выражения";
+str = str.replace(new RegExp("функция",'g'),"function");
+console.log(str);
