@@ -4,15 +4,53 @@
     <title>project</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="nouislider.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-    
-</header>
-<main id="gallery">
-</main>
-<footer></footer>
-<script src="script.js"></script>
+   <div class="wraper">
+        <header>
+            <h1 class="header_title">
+                My library
+            </h1>
+            <form>
+                <input type="search">
+                <input type="submit" value="Искать">
+            </form>
+        </header>
+        <main>
+            <aside class="filter">
+                <form method="post" id="filter_form" class="filter_form">
+                    <p>
+                        <label for="yearsRange">Период публикации:</label>
+                        <div id="yearsRange"></div>
+                        <div id="yearsRange1"></div>
+                    </p>
+                    <p>
+                        <label>
+                            Страна:
+                            <select id="countries" name="country">
+                            </select>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            Жанр:
+                            <select name="genre" id="genres">
+                            </select>
+                        </label>
+                    </p>
+                </form>
+            </aside>
+            <div class="galery" id="galery">
+            </div>
+        </main>
+        <footer></footer>
+   </div>
+   <script src="nouislider.min.js"></script>
+   <script src="db.js"></script>
+   <script src="script.js"></script>
 </body>
 </html>
