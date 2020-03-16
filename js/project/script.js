@@ -98,7 +98,6 @@ function initGenre() {
                 select.appendChild(option)
             }
         }
-        console.log(uniq);
     }
     select.addEventListener('change', function (e) {
         renderByGenre(e.target.selectedOptions[0].value)

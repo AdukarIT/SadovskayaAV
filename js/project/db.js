@@ -43,6 +43,34 @@ const db = {
             country: 'СССР',
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bu%C5%82hakow.jpg/274px-Bu%C5%82hakow.jpg'
         },
+        {
+            name: 'Рэй Брэдбери',
+            birthday: '22-08-1920',
+            deathdate: '05-06-2012',
+            country: 'США',
+            photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Ray_Bradbury_%281975%29.jpg/260px-Ray_Bradbury_%281975%29.jpg'
+        },
+        {
+            name: 'Айн Рэнд',
+            birthday: '02-02-1905',
+            deathdate: '05-03-1982',
+            country: 'США',
+            photo: 'https://www.wikireading.ru/img/372134_37_i_316.jpg'
+        },
+        {
+            name: 'Оскар Уальд',
+            birthday: '16-10-1854',
+            deathdate: '30-11-1900',
+            country: 'Великобритания',
+            photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oscar_Wilde_portrait.jpg/266px-Oscar_Wilde_portrait.jpg'
+        },
+        {
+            name: 'Фёдор Михайлович Достоевский',
+            birthday: '30-10-1821',
+            deathdate: '09-02-1881',
+            country: 'Российcкая империя',
+            photo: 'https://img.labirint.ru/images/upl/descripts/pic_1531382235.jpg'
+        },
 
     ],
     books: [
@@ -143,11 +171,60 @@ const db = {
             author: 4,
         },
         {
-            "name": 'Мастер и Маргарита',
-            "published": 1967,
-            "cover": 'https://lh3.googleusercontent.com/proxy/NeQk1IOayucWw3pWKwK-vckay-JTQ7mvUd5_z3HCPfiQSKWngkf0h1V03zcilNA-p6pNsKUEvQt7BTcKiQ',
-            "genre": ['роман'],
+            name: 'Мастер и Маргарита',
+            published: 1967,
+            cover: 'https://cdn.eksmo.ru/v2/ITD000000000912912/COVER/cover1__w600.jpg',
+            genre: ['роман'],
+            notes: [],
             author: 5,
+        },
+        {
+            name: '451 градус по Фаренгейту',
+            published: 1953,
+            cover: 'https://img4.labirint.ru/rc/8ab110c62b6bf96e1fa51b5a9d46bee9/220x340/books72/712914/cover.jpg?1568626195',
+            genre: ['роман'],
+            notes: [],
+            author: 6,
+        },
+        {
+            name: 'Атлант расправил плечи',
+            published: 1957,
+            cover: 'https://www.alpinabook.ru/upload/iblock/841/8411c6f97bf15f2c7e827fc4591769ea.jpg',
+            genre: ['роман-антиутопия'],
+            notes: [],
+            author: 7,
+        },
+        {
+            name: 'Портрет Дориана Грея',
+            published: 1890,
+            cover: 'https://knigamir.com/upload/iblock/beb/bebe4753b5e06b64289469a91ba4c155.jpg',
+            genre: ['роман'],
+            notes: [],
+            author: 8,
+        },
+        {
+            name: 'Идиот',
+            published: 1868,
+            cover: 'https://s1.knigavuhe.org/1/covers/5858/1-2.jpg?1',
+            genre: ['роман'],
+            notes: [],
+            author: 9,
+        },
+        {
+            name: 'Преступление и наказание',
+            published: 1866,
+            cover: 'https://img2.labirint.ru/rcimg/04da874fdf4f114defb1c43f7a272b08/960x540/books66/656936/ph_001.jpg?1564125511',
+            genre: ['роман'],
+            notes: [],
+            author: 9,
+        },
+        {
+            name: 'Братья Карамазовы',
+            published: 1880,
+            cover: 'https://s1-goods.ozstatic.by/1000/821/899/10/10899821_0.jpg',
+            genre: ['роман'],
+            notes: [],
+            author: 9,
         },
     ]
 };
