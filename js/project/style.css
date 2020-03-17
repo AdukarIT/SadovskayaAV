@@ -60,7 +60,7 @@ main{
     display: block;
 }
 
-.galery{
+.gallery{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -84,6 +84,14 @@ main{
 
 .author_name{
     font-size: .9em;
+}
+
+.about_author{
+    display: flex;
+}
+
+.author_photo{
+    width: 20em;
 }
 
 @media (min-width: 500px) {

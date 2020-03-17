@@ -1,3 +1,4 @@
+const gallery = document.getElementById("gallery");
 const filters = {
     date: [],
     country: '',
@@ -56,10 +57,11 @@ function setFilter(name, value) {
     const books = runFilter();
     renderBooks(books);
 }
-
-function renderBooks(books) {
-    const gallery = document.getElementById("galery");
+function clearGallery() {
     gallery.innerHTML = '';
+}
+function renderBooks(books) {
+    clearGallery();
     for (const book of books){
         let article = document.createElement("article");
         article.classList.add("article");
@@ -81,6 +83,8 @@ function renderBooks(books) {
         name.textContent = db.authors[book.author].name;
         article.appendChild(name);
         name.classList.add("author_name");
+        name.setAttribute('author_id', book.author);
+        name.addEventListener('click', renderAuthor);
 
         gallery.appendChild(article);
     }
@@ -157,3 +161,51 @@ function init() {
     renderBooks(db.books);
 }
 init();
+
+function renderAuthor(e) {
+    clearGallery();
+    let author = db.authors[e.target.getAttribute('author_id')];
+    let article = document.createElement("article");
+    article.classList.add("article");
+
+    let div = document.createElement("div");
+    div.classList.add('about_author');
+    article.appendChild(div);
+
+    let img = new Image();
+    img.src = author.photo;
+    img.alt = author.name;
+    img.classList.add("author_photo");
+    img.addEventListener('load', function (e) {
+        div.appendChild(img);
+    });
+
+    let info = document.createElement("div");
+    info.classList.add('info');
+    article.appendChild(info);
+
+    let name = document.createElement('p');
+    name.textContent = author.name;
+    info.appendChild(name);
+
+    let country = document.createElement('p');
+    country.textContent ='Страна: ' +  author.country;
+    info.appendChild(country);
+
+    let birth = document.createElement('p');
+    console.log(author.birthday);
+    author.birthday = author.birthday.replace(/-/g, '.');
+    birth.textContent = 'Дата рождения: ' +  author.birthday;
+    info.appendChild(birth);
+
+    let death = document.createElement('p');
+    console.log(author.deathdate);
+    author.deathdate = author.deathdate.replace(/-/g, '.');
+    if (author.deathdate) {
+        death.textContent = 'Дата смерти: ' + author.deathdate;
+    }
+    info.appendChild(death);
+
+    gallery.appendChild(article);
+
+}
