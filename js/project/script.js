@@ -1,37 +1,61 @@
-function initRangeSlider(selector) {
-    const toInt = {
-        to: function (number) {
-            return `${parseInt(number)} год`;
-        }
-    };
+const filters = {
+    date: [],
+    country: '',
+    genre: '',
+};
 
-    const range = document.getElementById(selector);
-
-    noUiSlider.create(range, {
-        start: [1900, 2000],
-        connect: true,
-        range: {
-            'min': 1800,
-            'max': 2020
-        },
-        step: 1,
-        tooltips: [toInt, toInt],
-    });
-
-    range.noUiSlider.on('change', function (date) {
-        renderByDate(date[0], date[1])
-    });
-}
-
-function renderByDate(dateFrom, dateTo) {
-    const books = db.books.filter(function (book) {
+function filterByDate(books, dateFrom, dateTo) {
+    return books.filter(function (book) {
         return book.published >= dateFrom && book.published <= dateTo;
     });
-    renderBooks(books)
 }
 
+function filterByCountry(books, country) {
+    if(country) {
+        books = books.filter(function (book) {
+            return db.authors[book.author].country === country;
+        });
+    }
+    return books
+}
 
+function filterByGenre(books, genre) {
+    if (genre)
+        books = books.filter(function (book) {
+            return book.genre.includes(genre);
+        });
 
+    return books;
+}
+
+function runFilter() {
+    let books = db.books;
+
+    for(let filter in filters) {
+        switch (filter) {
+            case 'date':
+                if (filters.date.length > 0)
+                    books = filterByDate(books, filters.date[0], filters.date[1]);
+                break;
+            case 'country':
+                books = filterByCountry(books, filters.country);
+                break;
+            case 'genre':
+                books = filterByGenre(books, filters.genre);
+                break;
+            default:
+                throw new Error(`Wrong filter: ${filter}`);
+        }
+    }
+
+    return books;
+}
+
+function setFilter(name, value) {
+    filters[name] = value;
+    const books = runFilter();
+    renderBooks(books);
+}
 
 function renderBooks(books) {
     const gallery = document.getElementById("galery");
@@ -62,15 +86,35 @@ function renderBooks(books) {
     }
 }
 
-function renderBooksByAuthor(authorId) {
-   const books = db.books.filter(function (book) {
-        return book.author === authorId;
+function initRangeSlider(selector) {
+    const toInt = {
+        to: function (number) {
+            return `${parseInt(number)} год`;
+        }
+    };
+
+    const range = document.getElementById(selector);
+
+    noUiSlider.create(range, {
+        start: [1800, 2020],
+        connect: true,
+        range: {
+            'min': 1800,
+            'max': 2020
+        },
+        step: 1,
+        tooltips: [toInt, toInt],
     });
-   renderBooks(books)
+
+    range.noUiSlider.on('change', function (date) {
+        setFilter('date', date);
+    });
 }
 
 function initCountries() {
     const select = document.getElementById('countries');
+    const empty = document.createElement('option');
+    select.appendChild(empty);
     const uniq = [];
     for (const author of db.authors){
         const option = document.createElement('option');
@@ -82,12 +126,14 @@ function initCountries() {
         }
     }
     select.addEventListener('change', function (e) {
-        renderByCountry(e.target.selectedOptions[0].value)
+        setFilter('country', e.target.selectedOptions[0].value)
     })
 }
 
 function initGenre() {
     const select = document.getElementById('genres');
+    const empty = document.createElement('option');
+    select.appendChild(empty);
     const uniq = [];
     for (const book of db.books){
         for (const genre of book.genre) {
@@ -100,28 +146,14 @@ function initGenre() {
         }
     }
     select.addEventListener('change', function (e) {
-        renderByGenre(e.target.selectedOptions[0].value)
+        setFilter('genre', e.target.selectedOptions[0].value)
     })
-}
-
-function renderByCountry(country) {
-    const books = db.books.filter(function (book) {
-        return db.authors[book.author].country === country;
-    });
-    renderBooks(books)
-}
-
-function renderByGenre(genre) {
-    const books = db.books.filter(function (book) {
-        return book.genre.includes(genre);
-    });
-    renderBooks(books)
 }
 
 function init() {
     initRangeSlider('yearsRange');
     initCountries();
-    renderBooks(db.books);
     initGenre();
+    renderBooks(db.books);
 }
 init();
