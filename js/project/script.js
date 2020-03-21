@@ -3,6 +3,7 @@ const filters = {
     date: [],
     country: '',
     genre: '',
+    search: '',
 };
 
 function filterByDate(books, dateFrom, dateTo) {
@@ -29,6 +30,15 @@ function filterByGenre(books, genre) {
     return books;
 }
 
+function filterBySearch(books, search) {
+    if (search)
+        books = books.filter(function (book) {
+            return book.name.toLowerCase().includes(search.toLowerCase());
+        });
+
+    return books;
+}
+
 function runFilter() {
     let books = db.books;
 
@@ -37,6 +47,9 @@ function runFilter() {
             case 'date':
                 if (filters.date.length > 0)
                     books = filterByDate(books, filters.date[0], filters.date[1]);
+                break;
+            case 'search':
+                books = filterBySearch(books, filters.search);
                 break;
             case 'country':
                 books = filterByCountry(books, filters.country);
@@ -182,7 +195,7 @@ function renderAuthor(e) {
 
     let info = document.createElement("div");
     info.classList.add('info');
-    article.appendChild(info);
+    div.appendChild(info);
 
     let name = document.createElement('p');
     name.textContent = author.name;
@@ -207,5 +220,9 @@ function renderAuthor(e) {
     info.appendChild(death);
 
     gallery.appendChild(article);
-
 }
+
+const search = document.getElementById('text-to-find');
+search.addEventListener('input', function (e) {
+    setFilter('search', search.value);
+});

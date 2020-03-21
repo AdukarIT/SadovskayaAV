@@ -37,7 +37,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/274px-George_Orwell_press_photo.jpg',
         },
         {
-            name: 'Михаил Афанасьевич Булгаков',
+            name: 'Михаил  Булгаков',
             birthday: '03-05-1891',
             deathdate: '10-03-1940',
             country: 'СССР',
@@ -65,7 +65,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oscar_Wilde_portrait.jpg/266px-Oscar_Wilde_portrait.jpg'
         },
         {
-            name: 'Фёдор Михайлович Достоевский',
+            name: 'Фёдор Достоевский',
             birthday: '30-10-1821',
             deathdate: '09-02-1881',
             country: 'Российcкая империя',
@@ -80,11 +80,41 @@ const db = {
         },
         {
             name: 'Маркус Зусак',
-            birthday: '2-06-1975',
+            birthday: '02-06-1975',
             deathdate: '',
             country: 'Австралия',
             photo: 'https://ru.citaty.net/media/authors/markus-zusak.jpg'
         },
+        {
+            name: 'Мариам Петросян',
+            birthday: '10-08-1969',
+            deathdate: '',
+            country: 'Армения',
+            photo: 'https://vignette.wikia.nocookie.net/domv/images/f/f2/202857_photo-1-.jpeg/revision/latest?cb=20161113175010&path-prefix=ru'
+        },
+        {
+            name: 'Владимир Набоков',
+            birthday: '10-04-1899',
+            deathdate: '02-07-1977',
+            country: 'Российска империя',
+            photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Vladimir_Nabokov_1973.jpg/262px-Vladimir_Nabokov_1973.jpg'
+        },
+        {
+            name: 'Джейн Остен',
+            birthday: '16-12-1775',
+            deathdate: '18-07-1817',
+            country: 'Великобритания',
+            photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Jane_Austen_coloured_version.jpg/300px-Jane_Austen_coloured_version.jpg'
+        },
+        {
+            name: 'Валентин Распутин',
+            birthday: '15-03-1937',
+            deathdate: '14-03-2013',
+            country: 'Россия',
+            photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD_%D0%A0%D0%B0%D1%81%D0%BF%D1%83%D1%82%D0%B8%D0%BD.jpg/290px-%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD_%D0%A0%D0%B0%D1%81%D0%BF%D1%83%D1%82%D0%B8%D0%BD.jpg'
+        },
+
+
 
 
     ],
@@ -270,6 +300,57 @@ const db = {
                 'По-моему, людям нравится немного полюбоваться разрушением. Песочные замки, карточные домики – с этого и начинают.'
                 ],
             author: 11,
+        },
+        {
+            name: 'Дом, в котором…',
+            published: 2009,
+            cover: 'https://upload.wikimedia.org/wikipedia/ru/thumb/c/c5/Dom%2C_v_kotorom..._%282009_cover%29.jpg/240px-Dom%2C_v_kotorom..._%282009_cover%29.jpg',
+            genre: ['роман'],
+            notes: ['Самая неприятная тишина там, где много людей молчат.',
+                'Всякий раз, потакая своим желаниям, теряешь волю и становишься их рабом',
+            'слова, которые сказаны, что-то означают, даже если ты ничего не имел в виду.',],
+            author: 12,
+        },
+        {
+            name: 'Лолита',
+            published: 2009,
+            cover: 'https://nemaloknig.com/picimg/398/3983/39835/398357/cover.jpg',
+            genre: ['роман'],
+            notes: ['Убить её, как некоторые ожидали, я, конечно, не мог. Я, видите ли, любил её.',
+                'Я глядел, и не мог наглядеться, и знал — столь твердо, как то, что умру — что люблю её больше всего, что когда-либо видел или мог вообразить на этом свете, или мечтал увидеть на том.',
+                'Туман нежности обволакивал горы тоски.',
+                'Перемена обстановки — традиционное заблуждение, на которое возлагают надежды обречённая любовь и неизлечимая чахотка.'],
+            author: 13,
+        },
+        {
+            name: 'Гордость и предубеждение',
+            published: 1813,
+            cover: 'https://cdn.eksmo.ru/v2/430000000000006016/COVER/cover1__w600.jpg',
+            genre: ['роман'],
+            notes: ['Думайте о прошлом лишь тогда, когда оно будит одни приятные воспоминания.',
+                'Когда сердце его будет завоевано, у нее останется сколько угодно времени для того, чтобы влюбиться в него самой.',
+                'Это было бы самым большим несчастьем. Найти приятным человека, которого решила ненавидеть!',
+                'Если вы начинаете с самопожертвования ради тех, кого любите, то закончите ненавистью к тем, кому принесли себя в жертву.'],
+            author: 14,
+        },
+        {
+            name: 'Живи и помни',
+            published: 1974,
+            cover: 'https://andronum.com/images-39/39956-rasputin-valentin-zhivi-i-pomni.jpg',
+            genre: ['повесть'],
+            notes: ['Когда все хорошо, легко быть вместе: это как сон, знай дыши, да и только. Надо быть вместе, когда плохо - вот для чего люди сходятся.',
+            'Жизнь - не одежка, ее по десять раз не примеряют. Что есть - все твое, и открещиваться ни от чего, пускай и самого плохого, не годится.',
+                'Нельзя на полном скаку заворачивать назад - сломаешься.'],
+            author: 15,
+        },
+        {
+            name: 'Уроки французского',
+            published: 1973,
+            cover: 'https://img4.labirint.ru/rc/0a58bd438588b7c853f86f4650cedb7e/220x340/books39/386024/cover.jpg?1366179916',
+            genre: ['рассказ'],
+            notes: ['Человек старее не тогда, когда он доживает до старости, а когда перестает быть ребенком.',
+            'Странно: почему мы так же, как и перед родителями, всякий раз чувствуем свою вину перед учителями? И не за то вовсе, что было в школе, — нет, а за то, что сталось с нами после.'],
+            author: 15,
         },
     ]
 };

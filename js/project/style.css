@@ -88,9 +88,15 @@ main{
 
 .about_author{
     display: flex;
+    flex-direction: row-reverse;
 }
 
+.info{
+    font-size: 1.2em;
+    margin: 4em;
+}
 .author_photo{
+    margin: 0 2em;
     width: 20em;
 }
 
