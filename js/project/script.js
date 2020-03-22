@@ -1,5 +1,5 @@
 const gallery = document.getElementById("gallery");
-const filters = {
+const FILTERS = {
     date: [],
     country: '',
     genre: '',
@@ -14,8 +14,10 @@ function filterByDate(books, dateFrom, dateTo) {
 
 function filterByCountry(books, country) {
     if(country) {
+        const authors = getAuthors();
+
         books = books.filter(function (book) {
-            return db.authors[book.author].country === country;
+            return authors[book.author].country === country;
         });
     }
     return books
@@ -39,9 +41,10 @@ function filterBySearch(books, search) {
     return books;
 }
 
-function runFilter() {
-    let books = db.books;
+function getFilteredBooks() {
+    let books = getBooks();
 
+    const filters = getFilters();
     for(let filter in filters) {
         switch (filter) {
             case 'date':
@@ -65,25 +68,21 @@ function runFilter() {
     return books;
 }
 
-function setFilter(name, value) {
-    filters[name] = value;
-    const books = runFilter();
-    renderBooks(books);
-}
 function clearGallery() {
     gallery.innerHTML = '';
 }
 function renderBooks(books) {
     clearGallery();
+    const authors = getAuthors();
     for (const book of books){
-        let article = document.createElement("article");
+        const article = document.createElement("article");
         article.classList.add("article");
 
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.classList.add('cover');
         article.appendChild(div);
 
-        let img = new Image();
+        const img = new Image();
         img.src = book.cover;
         img.alt = book.name;
         img.classList.add("cover_img");
@@ -92,8 +91,8 @@ function renderBooks(books) {
         });
         article.appendChild(div);
 
-        let name = document.createElement('p');
-        name.textContent = db.authors[book.author].name;
+        const name = document.createElement('p');
+        name.textContent = authors[book.author].name;
         article.appendChild(name);
         name.classList.add("author_name");
         name.setAttribute('author_id', book.author);
@@ -125,6 +124,7 @@ function initRangeSlider(selector) {
 
     range.noUiSlider.on('change', function (date) {
         setFilter('date', date);
+        renderBooks(getFilteredBooks())
     });
 }
 
@@ -133,7 +133,7 @@ function initCountries() {
     const empty = document.createElement('option');
     select.appendChild(empty);
     const uniq = [];
-    for (const author of db.authors){
+    for (const author of getAuthors()){
         const option = document.createElement('option');
         if (!uniq.includes(author.country)){
             option.textContent = author.country;
@@ -143,7 +143,8 @@ function initCountries() {
         }
     }
     select.addEventListener('change', function (e) {
-        setFilter('country', e.target.selectedOptions[0].value)
+        setFilter('country', e.target.selectedOptions[0].value);
+        renderBooks(getFilteredBooks());
     })
 }
 
@@ -152,7 +153,7 @@ function initGenre() {
     const empty = document.createElement('option');
     select.appendChild(empty);
     const uniq = [];
-    for (const book of db.books){
+    for (const book of getBooks()){
         for (const genre of book.genre) {
             if (!uniq.includes(genre)) {
                 const option = document.createElement('option');
@@ -163,29 +164,22 @@ function initGenre() {
         }
     }
     select.addEventListener('change', function (e) {
-        setFilter('genre', e.target.selectedOptions[0].value)
+        setFilter('genre', e.target.selectedOptions[0].value);
+        renderBooks(getFilteredBooks());
     })
 }
 
-function init() {
-    initRangeSlider('yearsRange');
-    initCountries();
-    initGenre();
-    renderBooks(db.books);
-}
-init();
-
 function renderAuthor(e) {
     clearGallery();
-    let author = db.authors[e.target.getAttribute('author_id')];
-    let article = document.createElement("article");
+    const author = getAuthors()[e.target.getAttribute('author_id')];
+    const article = document.createElement("article");
     article.classList.add("article");
 
-    let div = document.createElement("div");
+    const div = document.createElement("div");
     div.classList.add('about_author');
     article.appendChild(div);
 
-    let img = new Image();
+    const img = new Image();
     img.src = author.photo;
     img.alt = author.name;
     img.classList.add("author_photo");
@@ -193,19 +187,19 @@ function renderAuthor(e) {
         div.appendChild(img);
     });
 
-    let info = document.createElement("div");
+    const info = document.createElement("div");
     info.classList.add('info');
     div.appendChild(info);
 
-    let name = document.createElement('p');
+    const name = document.createElement('p');
     name.textContent = author.name;
     info.appendChild(name);
 
-    let country = document.createElement('p');
+    const country = document.createElement('p');
     country.textContent ='Страна: ' +  author.country;
     info.appendChild(country);
 
-    let birth = document.createElement('p');
+    const birth = document.createElement('p');
     console.log(author.birthday);
     author.birthday = author.birthday.replace(/-/g, '.');
     birth.textContent = 'Дата рождения: ' +  author.birthday;
@@ -225,4 +219,47 @@ function renderAuthor(e) {
 const search = document.getElementById('text-to-find');
 search.addEventListener('input', function (e) {
     setFilter('search', search.value);
+    renderBooks(getFilteredBooks());
+});
+
+function initLocalStorage(key, value) {
+    if(!localStorage.getItem(key)) {
+        localStorage.setItem(key, value);
+        return;
+    }
+
+    console.log(`${key} already in local storage.`);
+}
+
+function getBooks() {
+    return JSON.parse(localStorage.getItem('books'));
+}
+
+function getAuthors() {
+    return JSON.parse(localStorage.getItem('authors'));
+}
+
+function getFilters() {
+    return JSON.parse(localStorage.getItem('filters'));
+}
+
+function setFilter(key, value) {
+    const filters = getFilters();
+    filters[key] = value;
+    localStorage.setItem('filters', JSON.stringify(filters));
+}
+
+
+function init() {
+    initLocalStorage('books', JSON.stringify(db.books));
+    initLocalStorage('authors', JSON.stringify(db.authors));
+    initLocalStorage('filters', JSON.stringify(FILTERS));
+    initRangeSlider('yearsRange');
+    initCountries();
+    initGenre();
+    renderBooks(getBooks());
+}
+
+addEventListener('DOMContentLoaded', function() {
+    init();
 });
