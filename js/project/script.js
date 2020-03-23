@@ -1,6 +1,6 @@
 const gallery = document.getElementById("gallery");
 const FILTERS = {
-    date: [],
+    date: [1800, 2020],
     country: '',
     genre: '',
     search: '',
@@ -112,7 +112,7 @@ function initRangeSlider(selector) {
     const range = document.getElementById(selector);
 
     noUiSlider.create(range, {
-        start: [1800, 2020],
+        start: getFilters().date,
         connect: true,
         range: {
             'min': 1800,
@@ -140,6 +140,9 @@ function initCountries() {
             uniq.push(author.country);
             select.appendChild(option);
             option.value = author.country;
+            if (getFilters().country == author.country){
+                option.selected = true;
+            }
         }
     }
     select.addEventListener('change', function (e) {
@@ -159,7 +162,10 @@ function initGenre() {
                 const option = document.createElement('option');
                 option.textContent = genre;
                 uniq.push(genre);
-                select.appendChild(option)
+                select.appendChild(option);
+                if (getFilters().genre == genre){
+                    option.selected = true
+                }
             }
         }
     }
@@ -257,7 +263,7 @@ function init() {
     initRangeSlider('yearsRange');
     initCountries();
     initGenre();
-    renderBooks(getBooks());
+    renderBooks(getFilteredBooks());
 }
 
 addEventListener('DOMContentLoaded', function() {
