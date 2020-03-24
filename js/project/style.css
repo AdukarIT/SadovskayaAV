@@ -104,7 +104,97 @@ main{
     border: none;
     background: transparent;
     display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    user-select: none;
+    font-size: 18px;
+}
 
+.header_button_addition span{
+    margin-left: 1em;
+}
+
+
+#formContainer form{
+    display: flex;
+    flex-direction: column;
+}
+
+#formContainer form input, textarea, button{
+    margin: 1em 0;
+    font-size: 16px;
+    border-color: #343a40;
+    border-radius: .25rem;
+}
+
+#formContainer form input{
+    height: 2em;
+    background: #f8f8f8;
+    outline: none;
+    user-select: none;
+    padding-left: 1em;
+    border-color: #343a40;
+    border-radius: .25rem;
+}
+
+#formContainer textarea, #text-to-find{
+    border-radius: .25rem;
+    background: #f8f8f8;
+    outline: none;
+    user-select: none;
+    font-size: 16px;
+    padding-left: 1em;
+    border: solid 2px #343a40;
+}
+
+
+#formContainer textarea{
+    padding-top: 1em;
+}
+
+#text-to-find{
+    width: 16em;
+    height: 1.7em;
+}
+
+.button_create {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+}
+
+
+.button_reset{
+    width: 100px;
+    height: 34px;
+    font-size: 16px;
+}
+
+.button{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #343a40;
+    background-color: transparent;
+    background-image: none;
+    border-color: #343a40;
+    user-select: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border-radius: .25rem;
+}
+
+.button:hover {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.button:active {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
 }
 
 @media (min-width: 500px) {
