@@ -115,20 +115,29 @@ main{
     margin-left: 1em;
 }
 
+.button_container{
+    display: flex;
+}
+.button_reset-form{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 2em;
+}
 
-#formContainer form{
+.formContainer form{
     display: flex;
     flex-direction: column;
 }
 
-#formContainer form input, textarea, button{
+.formContainer form input, textarea, button{
     margin: 1em 0;
     font-size: 16px;
     border-color: #343a40;
     border-radius: .25rem;
 }
 
-#formContainer form input{
+.formContainer form input{
     height: 2em;
     background: #f8f8f8;
     outline: none;
@@ -138,7 +147,7 @@ main{
     border-radius: .25rem;
 }
 
-#formContainer textarea, #text-to-find{
+.formContainer textarea, #text-to-find{
     border-radius: .25rem;
     background: #f8f8f8;
     outline: none;
@@ -149,7 +158,7 @@ main{
 }
 
 
-#formContainer textarea{
+.formContainer textarea{
     padding-top: 1em;
 }
 

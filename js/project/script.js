@@ -264,17 +264,30 @@ function addBook() {
     button.addEventListener('click', function (e) {
         clearGallery();
         const htmlForm = '' +
-            '  <div id="formContainer">\n' +
+            '  <div id="formContainer2" class="formContainer">\n' +
             '       <form method="post" >\n' +
             '           <input required size="100%" type="text"  placeholder="название книги" >\n' +
             '           <input required size="100%" type="number" placeholder="год публикации">\n' +
             '           <input required size="100%" type="text" placeholder="ссылка на изображение обложки">\n' +
             '           <input required size="100%" type="text" placeholder="жанр">\n' +
             '           <textarea size="100%" placeholder="цитаты из книги"></textarea>\n' +
-            '           <button class=" button button_create" type="submit">добавить книгу</button>'
+            '           <select id="choose_author">\n' +
+            '           </select>\n'+
+            '           <div class="button_container">\n'+
+            '                <button class=" button button_create" type="submit">добавить книгу</button>\n' +
+            '                <button class="button button_reset-form" type="reset">очистить</button>\n'+
+            '           </div>\n'+
             '      </form>\n' +
             '  </div>'
         gallery.innerHTML = htmlForm;
+
+        const select = document.getElementById('choose_author');
+        console.log(select);
+        for (const author of getAuthors()){
+            const option = document.createElement('option');
+            option.textContent = author.name;
+            select.appendChild(option);
+        }
     })
 }
 
@@ -284,20 +297,26 @@ function addAuthor() {
     button.addEventListener('click', function (e) {
         clearGallery();
         const htmlForm = '' +
-            '  <div id="formContainer">\n' +
+            '  <div id="formContainer" class="formContainer">\n' +
             '       <form method="post" name="addNewAuthor">\n' +
             '           <input name="name" required size="100%" type="text"  placeholder="Имя и фамилия автора" >\n' +
             '           <input name="birthday" required size="100%" type="datetime" placeholder="дата рождения в формате ДД-ММ-ГГ">\n' +
             '           <input name="deathdate"  size="100%" type="datetime" placeholder="дата смерти в формате ДД-ММ-ГГ"">\n' +
             '           <input name="country" required size="100%" type="text" placeholder="страна (гражданство)">\n' +
             '           <input name="photo" required size="100%" type="text" placeholder="ссылка на фотографию">\n' +
-            '           <button class=" button button_create" type="submit">добавить автора</button>'
+            '           <div class="button_container">\n'+
+            '                <button class=" button button_create" type="submit">добавить автора</button>\n' +
+            '                <button class="button button_reset-form" type="reset">очистить</button>\n'+
+            '           </div>\n'+
         '      </form>\n' +
-        '  </div>'
+        '  </div>';
         gallery.innerHTML = htmlForm;
+
         const formElement = document.forms.addNewAuthor;
+
         formElement.addEventListener('submit', function (e) {
             e.preventDefault();
+
             const author = {};
             for(const field of e.target.elements) {
                 if(field.name && field.value) {
@@ -306,8 +325,14 @@ function addAuthor() {
             }
 
             const authors = getAuthors();
+            for (const oldAuthor of authors) {
+                if (oldAuthor.name == author.name) {
+                    alert("такой автор уже есть");
+                    return;
+                }
+            }
             authors.push(author);
-            localStorage.setItem('authors',JSON.stringify(authors));
+            localStorage.setItem('authors', JSON.stringify(authors));
 
             return false;
         });
