@@ -92,6 +92,10 @@ function renderBooks(books) {
         article.appendChild(div);
 
         const name = document.createElement('p');
+        if(!authors[book.author]){
+            console.log('Can not render book.', book);
+            continue;
+        }
         name.textContent = authors[book.author].name;
         article.appendChild(name);
         name.classList.add("author_name");
@@ -265,12 +269,12 @@ function addBook() {
         clearGallery();
         const htmlForm = '' +
             '  <div id="formContainer2" class="formContainer">\n' +
-            '       <form method="post" >\n' +
-            '           <input required size="100%" type="text"  placeholder="название книги" >\n' +
-            '           <input required size="100%" type="number" placeholder="год публикации">\n' +
-            '           <input required size="100%" type="text" placeholder="ссылка на изображение обложки">\n' +
-            '           <input required size="100%" type="text" placeholder="жанр">\n' +
-            '           <textarea size="100%" placeholder="цитаты из книги"></textarea>\n' +
+            '       <form method="post" name="addNewBook" >\n' +
+            '           <input name="name" required size="100%" type="text"  placeholder="название книги" >\n' +
+            '           <input name="published" required size="100%" type="number" placeholder="год публикации">\n' +
+            '           <input name="cover" required size="100%" type="text" placeholder="ссылка на изображение обложки">\n' +
+            '           <input name="genre" required size="100%" type="text" placeholder="жанр">\n' +
+            '           <textarea name="notes" size="100%" placeholder="цитаты из книги"></textarea>\n' +
             '           <select id="choose_author">\n' +
             '           </select>\n'+
             '           <div class="button_container">\n'+
@@ -282,12 +286,42 @@ function addBook() {
         gallery.innerHTML = htmlForm;
 
         const select = document.getElementById('choose_author');
-        console.log(select);
         for (const author of getAuthors()){
             const option = document.createElement('option');
+            option.value = author.id;
             option.textContent = author.name;
             select.appendChild(option);
         }
+
+        const formElement = document.forms.addNewBook;
+
+        formElement.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const book = {};
+            for(const field of e.target.elements) {
+                if(field.name && field.value) {
+                    if (field.name === 'genre'){
+                         field.value = [field.value];
+                    }
+                    book[field.name] = field.value
+                }
+            }
+
+            const books = getBooks();
+            for (const oldBook of books) {
+                if (oldBook.name == book.name) {
+                    alert("такая книга уже есть");
+                    return;
+                }
+            }
+            books.push(book);
+            console.log(book);
+            localStorage.setItem('books', JSON.stringify(books));
+
+            return false;
+        });
+
     })
 }
 
@@ -320,9 +354,10 @@ function addAuthor() {
             const author = {};
             for(const field of e.target.elements) {
                 if(field.name && field.value) {
-                    author[field.name] = field.value
+                    author[field.name] = field.value;
                 }
             }
+
 
             const authors = getAuthors();
             for (const oldAuthor of authors) {
@@ -331,6 +366,7 @@ function addAuthor() {
                     return;
                 }
             }
+            author.id = getMaxOfArray(arrayOfId()) + 1 ;
             authors.push(author);
             localStorage.setItem('authors', JSON.stringify(authors));
 
@@ -338,6 +374,20 @@ function addAuthor() {
         });
     })
 }
+
+function arrayOfId() {
+    const authors = getAuthors();
+    const array = [];
+    for (const  author of authors){
+        array.push(author.id);
+    }
+    return array;
+}
+
+function getMaxOfArray(array) {
+    return Math.max.apply(null, array);
+}
+
 
 function init() {
     initLocalStorage('books', JSON.stringify(db.books));
@@ -355,3 +405,4 @@ function init() {
 addEventListener('DOMContentLoaded', function() {
     init();
 });
+//data-id

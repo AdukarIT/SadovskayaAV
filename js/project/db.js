@@ -1,14 +1,14 @@
 const db = {
     authors: [
         {
+            id: 0,
             name: 'Габриэль Гарсиа Маркес',
             birthday: '06-03-1927',
             deathdate: '17-04-2014',
             country: 'Колумбия',
             photo: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg',
-
         },
-        {
+        {   id: 1,
             name: 'Дэниел Киз',
             birthday: '09-08-1927',
             deathdate: '15-06-2014',
@@ -17,12 +17,14 @@ const db = {
 
         },
         {
+            id: 2,
             name: 'Грегори Дэвид Робертс',
             birthday: '21-06-1952',
             deathdate: '',
             country: 'Австралия',
             photo: 'http://www.cablook.com/wp-content/uploads/2014/08/GregLowRes03.jpg'},
         {
+            id: 3,
             name: 'Нелл Харпер Ли ',
             birthday: '28-04-1926',
             deathdate: '19-02-2016',
@@ -30,6 +32,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/b/b5/Photo_portrait_of_Harper_Lee_%28To_Kill_a_Mockingbird_dust_jacket%2C_1960%29.jpg'
         },
         {
+            id: 4,
             name: 'Джордж Оруэлл ',
             birthday: '25-06-1903',
             deathdate: '21-01-1950',
@@ -37,6 +40,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/274px-George_Orwell_press_photo.jpg',
         },
         {
+            id: 5,
             name: 'Михаил  Булгаков',
             birthday: '03-05-1891',
             deathdate: '10-03-1940',
@@ -44,6 +48,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Bu%C5%82hakow.jpg/274px-Bu%C5%82hakow.jpg'
         },
         {
+            id: 6,
             name: 'Рэй Брэдбери',
             birthday: '22-08-1920',
             deathdate: '05-06-2012',
@@ -51,6 +56,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Ray_Bradbury_%281975%29.jpg/260px-Ray_Bradbury_%281975%29.jpg'
         },
         {
+            id: 7,
             name: 'Айн Рэнд',
             birthday: '02-02-1905',
             deathdate: '05-03-1982',
@@ -58,6 +64,7 @@ const db = {
             photo: 'https://www.wikireading.ru/img/372134_37_i_316.jpg'
         },
         {
+            id: 8,
             name: 'Оскар Уальд',
             birthday: '16-10-1854',
             deathdate: '30-11-1900',
@@ -65,6 +72,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oscar_Wilde_portrait.jpg/266px-Oscar_Wilde_portrait.jpg'
         },
         {
+            id: 9,
             name: 'Фёдор Достоевский',
             birthday: '30-10-1821',
             deathdate: '09-02-1881',
@@ -72,6 +80,7 @@ const db = {
             photo: 'https://img.labirint.ru/images/upl/descripts/pic_1531382235.jpg'
         },
         {
+            id: 10,
             name: 'Эрих Мария Ремарк',
             birthday: '22-06-1898',
             deathdate: '25-09-1970',
@@ -79,6 +88,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Erich_Maria_Remarque1.jpg'
         },
         {
+            id: 11,
             name: 'Маркус Зусак',
             birthday: '02-06-1975',
             deathdate: '',
@@ -86,6 +96,7 @@ const db = {
             photo: 'https://ru.citaty.net/media/authors/markus-zusak.jpg'
         },
         {
+            id: 12,
             name: 'Мариам Петросян',
             birthday: '10-08-1969',
             deathdate: '',
@@ -93,6 +104,7 @@ const db = {
             photo: 'https://vignette.wikia.nocookie.net/domv/images/f/f2/202857_photo-1-.jpeg/revision/latest?cb=20161113175010&path-prefix=ru'
         },
         {
+            id: 13,
             name: 'Владимир Набоков',
             birthday: '10-04-1899',
             deathdate: '02-07-1977',
@@ -100,6 +112,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Vladimir_Nabokov_1973.jpg/262px-Vladimir_Nabokov_1973.jpg'
         },
         {
+            id: 14,
             name: 'Джейн Остен',
             birthday: '16-12-1775',
             deathdate: '18-07-1817',
@@ -107,6 +120,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Jane_Austen_coloured_version.jpg/300px-Jane_Austen_coloured_version.jpg'
         },
         {
+            id: 15,
             name: 'Валентин Распутин',
             birthday: '15-03-1937',
             deathdate: '14-03-2013',
@@ -114,6 +128,7 @@ const db = {
             photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD_%D0%A0%D0%B0%D1%81%D0%BF%D1%83%D1%82%D0%B8%D0%BD.jpg/290px-%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD_%D0%A0%D0%B0%D1%81%D0%BF%D1%83%D1%82%D0%B8%D0%BD.jpg'
         },
         {
+            id: 16,
             name: 'Юваль Ной Харари',
             birthday: '24-02-1976',
             deathdate: '',
@@ -244,7 +259,7 @@ const db = {
         {
             name: 'Атлант расправил плечи',
             published: 1957,
-            cover: 'https://www.alpinabook.ru/upload/iblock/841/8411c6f97bf15f2c7e827fc4591769ea.jpg',
+            cover: 'https://audio-books.club/posters/4038.jpg',
             genre: ['роман-антиутопия'],
             notes: [],
             author: 7,
