@@ -301,10 +301,15 @@ function addBook() {
             const book = {};
             for(const field of e.target.elements) {
                 if(field.name && field.value) {
+                    console.log(field.name, field.value)
                     if (field.name === 'genre'){
-                         field.value = [field.value];
+                        let genre = [];
+                        genre.push(field.value);
+
+                        book[field.name] = genre;
+                        continue;
                     }
-                    book[field.name] = field.value
+                    book[field.name] = field.value;
                 }
             }
 
@@ -315,6 +320,13 @@ function addBook() {
                     return;
                 }
             }
+
+
+            const authors = getAuthors();
+            for (const author of authors){
+                book.author = author.id;
+            }
+
             books.push(book);
             console.log(book);
             localStorage.setItem('books', JSON.stringify(books));
