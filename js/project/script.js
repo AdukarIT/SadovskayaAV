@@ -74,7 +74,8 @@ function clearGallery() {
 function renderBooks(books) {
     clearGallery();
     const authors = getAuthors();
-    for (const book of books){
+    for (const id in books){
+        const book = books[id];
         const article = document.createElement("article");
         article.classList.add("article");
 
@@ -87,11 +88,11 @@ function renderBooks(books) {
         img.alt = book.name;
         img.classList.add("cover_img");
         img.addEventListener('load', function (e) {
+            img.setAttribute('book_id', id)
             div.appendChild(img);
             img.addEventListener('click', function (e) {
-                clearGallery();
+                renderBook(e.target.getAttribute('book_id'));
             })
-
         });
         article.appendChild(div);
 
@@ -104,7 +105,9 @@ function renderBooks(books) {
         article.appendChild(name);
         name.classList.add("author_name");
         name.setAttribute('author_id', book.author);
-        name.addEventListener('click', renderAuthor);
+        name.addEventListener('click', function (e) {
+            renderAuthor(e.target.getAttribute('author_id'));
+        });
 
         gallery.appendChild(article);
     }
@@ -183,9 +186,52 @@ function initGenre() {
     })
 }
 
-function renderAuthor(e) {
+function renderBook(id) {
     clearGallery();
-    const author = getAuthors()[e.target.getAttribute('author_id')];
+    const book = getBook(id);
+    console.log(book);
+    const article = document.createElement("article");
+    article.classList.add("article");
+
+    const div = document.createElement("div");
+    div.classList.add('about_book');
+    article.appendChild(div);
+
+    const img = new Image();
+    img.src = book.cover;
+    img.alt = book.name;
+    img.classList.add("book_cover");
+    img.addEventListener('load', function (e) {
+        div.appendChild(img);
+    });
+
+    const info = document.createElement("div");
+    info.classList.add('info');
+    div.appendChild(info);
+
+    const name = document.createElement('p');
+    name.textContent = book.name;
+    info.appendChild(name);
+
+    const published = document.createElement('p');
+    published.textContent ='Год публикации: '+  book.published;
+    info.appendChild(published);
+
+    const genre = document.createElement('p');
+    genre.textContent = "Жанр: " + book.genre;
+    info.appendChild(genre);
+
+    const quote = document.createElement('p');
+    quote.textContent = "Цитаты из книги: " + book.notes;
+    info.appendChild(quote);
+
+    gallery.appendChild(article);
+
+}
+
+function renderAuthor(id) {
+    clearGallery();
+    const author = getAuthors()[id];
     const article = document.createElement("article");
     article.classList.add("article");
 
@@ -220,7 +266,6 @@ function renderAuthor(e) {
     info.appendChild(birth);
 
     let death = document.createElement('p');
-    console.log(author.deathdate);
         if (author.deathdate) {
             author.deathdate = author.deathdate.replace(/-/g, '.');
             death.textContent = 'Дата смерти: ' + author.deathdate;
@@ -246,6 +291,14 @@ function initLocalStorage(key, value) {
         return;
     }
     console.log(`${key} already in local storage.`);
+}
+
+function getBook(id) {
+    const books = getBooks();
+    if(books[id]){
+        return books[id];
+    }
+    alert('Book not found!');
 }
 
 function getBooks() {
