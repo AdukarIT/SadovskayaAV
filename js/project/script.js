@@ -88,6 +88,10 @@ function renderBooks(books) {
         img.classList.add("cover_img");
         img.addEventListener('load', function (e) {
             div.appendChild(img);
+            img.addEventListener('click', function (e) {
+                clearGallery();
+            })
+
         });
         article.appendChild(div);
 
@@ -217,10 +221,10 @@ function renderAuthor(e) {
 
     let death = document.createElement('p');
     console.log(author.deathdate);
-    author.deathdate = author.deathdate.replace(/-/g, '.');
-    if (author.deathdate) {
-        death.textContent = 'Дата смерти: ' + author.deathdate;
-    }
+        if (author.deathdate) {
+            author.deathdate = author.deathdate.replace(/-/g, '.');
+            death.textContent = 'Дата смерти: ' + author.deathdate;
+        }
     info.appendChild(death);
 
     gallery.appendChild(article);
