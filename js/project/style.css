@@ -97,11 +97,15 @@ main{
     height: 15em;
 }
 
+.book_cover{
+    width: 15em;
+    height: 23em;
+}
 .author_name{
     font-size: .9em;
 }
 
-.about_author{
+.about_author, .about_book{
     display: flex;
     flex-direction: row-reverse;
 }

@@ -74,8 +74,7 @@ function clearGallery() {
 function renderBooks(books) {
     clearGallery();
     const authors = getAuthors();
-    for (const id in books){
-        const book = books[id];
+    for (const book of books){
         const article = document.createElement("article");
         article.classList.add("article");
 
@@ -88,10 +87,10 @@ function renderBooks(books) {
         img.alt = book.name;
         img.classList.add("cover_img");
         img.addEventListener('load', function (e) {
-            img.setAttribute('book_id', id)
+            img.setAttribute('book_id', book.id);
             div.appendChild(img);
             img.addEventListener('click', function (e) {
-                renderBook(e.target.getAttribute('book_id'));
+                renderBook(parseInt(e.target.getAttribute('book_id')));
             })
         });
         article.appendChild(div);
@@ -189,7 +188,6 @@ function initGenre() {
 function renderBook(id) {
     clearGallery();
     const book = getBook(id);
-    console.log(book);
     const article = document.createElement("article");
     article.classList.add("article");
 
@@ -222,8 +220,10 @@ function renderBook(id) {
     info.appendChild(genre);
 
     const quote = document.createElement('p');
-    quote.textContent = "Цитаты из книги: " + book.notes;
-    info.appendChild(quote);
+    if (book.notes){
+        quote.textContent = "Цитаты из книги: " + book.notes;
+        info.appendChild(quote);
+    }
 
     gallery.appendChild(article);
 
@@ -295,8 +295,10 @@ function initLocalStorage(key, value) {
 
 function getBook(id) {
     const books = getBooks();
-    if(books[id]){
-        return books[id];
+    for (const book of books) {
+        if (book.id === id) {
+            return book;
+        }
     }
     alert('Book not found!');
 }
