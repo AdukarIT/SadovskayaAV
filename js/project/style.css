@@ -119,6 +119,10 @@ main{
     width: 20em;
 }
 
+.author_photo:hover{
+    opacity: 0.8;
+}
+
 .header_button_addition{
     border: none;
     background: transparent;
@@ -197,6 +201,11 @@ main{
     width: 100px;
     height: 34px;
     font-size: 16px;
+}
+
+.button_edit{
+    width: 10em;
+    height: 3em;
 }
 
 .button{

@@ -225,6 +225,7 @@ function renderBook(id) {
         info.appendChild(quote);
     }
 
+
     gallery.appendChild(article);
 
 }
@@ -260,7 +261,6 @@ function renderAuthor(id) {
     info.appendChild(country);
 
     const birth = document.createElement('p');
-    console.log(author.birthday);
     author.birthday = author.birthday.replace(/-/g, '.');
     birth.textContent = 'Дата рождения: ' +  author.birthday;
     info.appendChild(birth);
@@ -271,6 +271,12 @@ function renderAuthor(id) {
             death.textContent = 'Дата смерти: ' + author.deathdate;
         }
     info.appendChild(death);
+
+    const btn = document.createElement('button');
+    btn.textContent = "редактировать";
+    btn.classList.add('button','button_edit');
+    btn.addEventListener('click', renderAuthorForm);
+    info.appendChild(btn);
 
     gallery.appendChild(article);
 }
@@ -360,7 +366,7 @@ function addBook() {
             const book = {};
             for(const field of e.target.elements) {
                 if(field.name && field.value) {
-                    console.log(field.name, field.value)
+                    console.log(field.name, field.value);
                     if (field.name === 'genre'){
                         let genre = [];
                         genre.push(field.value);
@@ -397,9 +403,13 @@ function addBook() {
 }
 
 
-function addAuthor() {
+function getAuthorForm() {
     const button = document.getElementById('addAuthor');
-    button.addEventListener('click', function (e) {
+    button.addEventListener('click', renderAuthorForm)
+}
+
+
+function renderAuthorForm() {
         clearGallery();
         const htmlForm = '' +
             '  <div id="formContainer" class="formContainer">\n' +
@@ -443,7 +453,6 @@ function addAuthor() {
 
             return false;
         });
-    })
 }
 
 function arrayOfId() {
@@ -470,7 +479,7 @@ function init() {
     initSearch('text-to-find');
     renderBooks(getFilteredBooks());
     addBook();
-    addAuthor();
+    getAuthorForm();
 }
 
 addEventListener('DOMContentLoaded', function() {
