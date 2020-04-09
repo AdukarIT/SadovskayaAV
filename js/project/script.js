@@ -13,7 +13,7 @@ function filterByDate(books, dateFrom, dateTo) {
 }
 
 function filterByCountry(books, country) {
-    if(country) {
+    if (country) {
         const authors = getAuthors();
 
         books = books.filter(function (book) {
@@ -45,7 +45,7 @@ function getFilteredBooks() {
     let books = getBooks();
 
     const filters = getFilters();
-    for(let filter in filters) {
+    for (let filter in filters) {
         switch (filter) {
             case 'date':
                 if (filters.date.length > 0)
@@ -71,10 +71,11 @@ function getFilteredBooks() {
 function clearGallery() {
     gallery.innerHTML = '';
 }
+
 function renderBooks(books) {
     clearGallery();
     const authors = getAuthors();
-    for (const book of books){
+    for (const book of books) {
         const article = document.createElement("article");
         article.classList.add("article");
 
@@ -96,7 +97,7 @@ function renderBooks(books) {
         article.appendChild(div);
 
         const name = document.createElement('p');
-        if(!authors[book.author]){
+        if (!authors[book.author]) {
             console.log('Can not render book.', book);
             continue;
         }
@@ -143,14 +144,14 @@ function initCountries() {
     const empty = document.createElement('option');
     select.appendChild(empty);
     const uniq = [];
-    for (const author of getAuthors()){
+    for (const author of getAuthors()) {
         const option = document.createElement('option');
-        if (!uniq.includes(author.country)){
+        if (!uniq.includes(author.country)) {
             option.textContent = author.country;
             uniq.push(author.country);
             select.appendChild(option);
             option.value = author.country;
-            if (getFilters().country == author.country){
+            if (getFilters().country == author.country) {
                 option.selected = true;
             }
         }
@@ -166,14 +167,14 @@ function initGenre() {
     const empty = document.createElement('option');
     select.appendChild(empty);
     const uniq = [];
-    for (const book of getBooks()){
+    for (const book of getBooks()) {
         for (const genre of book.genre) {
             if (!uniq.includes(genre)) {
                 const option = document.createElement('option');
                 option.textContent = genre;
                 uniq.push(genre);
                 select.appendChild(option);
-                if (getFilters().genre == genre){
+                if (getFilters().genre == genre) {
                     option.selected = true
                 }
             }
@@ -212,7 +213,7 @@ function renderBook(id) {
     info.appendChild(name);
 
     const published = document.createElement('p');
-    published.textContent ='Год публикации: '+  book.published;
+    published.textContent = 'Год публикации: ' + book.published;
     info.appendChild(published);
 
     const genre = document.createElement('p');
@@ -220,7 +221,7 @@ function renderBook(id) {
     info.appendChild(genre);
 
     const quote = document.createElement('p');
-    if (book.notes){
+    if (book.notes) {
         quote.textContent = "Цитаты из книги: " + book.notes;
         info.appendChild(quote);
     }
@@ -257,24 +258,24 @@ function renderAuthor(id) {
     info.appendChild(name);
 
     const country = document.createElement('p');
-    country.textContent ='Страна: ' +  author.country;
+    country.textContent = 'Страна: ' + author.country;
     info.appendChild(country);
 
     const birth = document.createElement('p');
     author.birthday = author.birthday.replace(/-/g, '.');
-    birth.textContent = 'Дата рождения: ' +  author.birthday;
+    birth.textContent = 'Дата рождения: ' + author.birthday;
     info.appendChild(birth);
 
     let death = document.createElement('p');
-        if (author.deathdate) {
-            author.deathdate = author.deathdate.replace(/-/g, '.');
-            death.textContent = 'Дата смерти: ' + author.deathdate;
-        }
+    if (author.deathdate) {
+        author.deathdate = author.deathdate.replace(/-/g, '.');
+        death.textContent = 'Дата смерти: ' + author.deathdate;
+    }
     info.appendChild(death);
 
     const btn = document.createElement('button');
     btn.textContent = "редактировать";
-    btn.classList.add('button','button_edit');
+    btn.classList.add('button', 'button_edit');
     btn.addEventListener('click', function (e) {
         renderAuthorForm(author);
     });
@@ -294,7 +295,7 @@ function initSearch(id) {
 }
 
 function initLocalStorage(key, value) {
-    if(!localStorage.getItem(key)) {
+    if (!localStorage.getItem(key)) {
         localStorage.setItem(key, value);
         return;
     }
@@ -343,17 +344,17 @@ function addBook() {
             '           <input name="genre" required size="100%" type="text" placeholder="жанр">\n' +
             '           <textarea name="notes" size="100%" placeholder="цитаты из книги"></textarea>\n' +
             '           <select id="choose_author">\n' +
-            '           </select>\n'+
-            '           <div class="button_container">\n'+
+            '           </select>\n' +
+            '           <div class="button_container">\n' +
             '                <button class=" button button_create" type="submit">добавить книгу</button>\n' +
-            '                <button class="button button_reset-form" type="reset">очистить</button>\n'+
-            '           </div>\n'+
+            '                <button class="button button_reset-form" type="reset">очистить</button>\n' +
+            '           </div>\n' +
             '      </form>\n' +
             '  </div>'
         gallery.innerHTML = htmlForm;
 
         const select = document.getElementById('choose_author');
-        for (const author of getAuthors()){
+        for (const author of getAuthors()) {
             const option = document.createElement('option');
             option.value = author.id;
             option.textContent = author.name;
@@ -366,10 +367,10 @@ function addBook() {
             e.preventDefault();
 
             const book = {};
-            for(const field of e.target.elements) {
-                if(field.name && field.value) {
+            for (const field of e.target.elements) {
+                if (field.name && field.value) {
                     console.log(field.name, field.value);
-                    if (field.name === 'genre'){
+                    if (field.name === 'genre') {
                         let genre = [];
                         genre.push(field.value);
 
@@ -390,7 +391,7 @@ function addBook() {
 
 
             const authors = getAuthors();
-            for (const author of authors){
+            for (const author of authors) {
                 book.author = author.id;
             }
 
@@ -407,37 +408,56 @@ function addBook() {
 
 function createAuthorFormButton() {
     const button = document.getElementById('addAuthor');
-    button.addEventListener('click', function (e){
-        renderAuthorForm({})
+    button.addEventListener('click', function (e) {
+        renderAuthorForm()
     })
 }
 
-function renderAuthorForm(author){
+function createEmptyAuthor() {
+    return {
+        name: '',
+        birthday: '',
+        deathdate: '',
+        country: '',
+        photo: ''
+    };
+}
+
+function renderAuthorForm(author) {
     clearGallery();
+
+    let isCreate = false;
+    if(!author){
+        isCreate = true;
+        author = createEmptyAuthor();
+    }
+
     gallery.innerHTML = `
-          <div id="formContainer" class="formContainer">
-               <form method="post" name="addNewAuthor">
-                   <input name="name" value="${author.name}" required size="100%" type="text"  placeholder="Имя и фамилия автора" >
-                   <input name="birthday" value="${author.birthday}" required size="100%" type="datetime" placeholder="дата рождения в формате ДД-ММ-ГГ">
-                   <input name="deathdate" value="${author.deathdate}"  size="100%" type="datetime" placeholder="дата смерти в формате ДД-ММ-ГГ"">
-                   <input name="country" value="${author.country}" required size="100%" type="text" placeholder="страна (гражданство)">
-                   <input name="photo" value="${author.photo}" required size="100%" type="text" placeholder="ссылка на фотографию">
-                   <div class="button_container">
-                        <button class=" button button_create" type="submit">добавить автора</button>
-                        <button class="button button_reset-form" type="reset">очистить</button>
-                   </div>
-          </form>
-      </div>`;
+        <div id="formContainer" class="formContainer">
+            <form method="post" name="addNewAuthor">
+                <input name="name" value="${author.name}" required size="100%" type="text"  placeholder="Имя и фамилия автора" >
+                <input name="birthday" value="${author.birthday}" required size="100%" type="datetime" placeholder="дата рождения в формате ДД-ММ-ГГ">
+                <input name="deathdate" value="${author.deathdate}"  size="100%" type="datetime" placeholder="дата смерти в формате ДД-ММ-ГГ"">
+                <input name="country" value="${author.country}" required size="100%" type="text" placeholder="страна (гражданство)">
+                <input name="photo" value="${author.photo}" required size="100%" type="text" placeholder="ссылка на фотографию">
+                <div class="button_container">
+                    <button id="submit_button" class=" button button_create" type="submit">добавить автора</button>
+                    <button class="button button_reset-form" type="reset">очистить</button>
+                </div>
+            </form>
+        </div>`;
 
-
+    if(!isCreate){
+        const btn = document.getElementById('submit_button');
+        btn.textContent = 'изменить'
+    }
     const formElement = document.forms.addNewAuthor;
-    console.log(author);
+
     formElement.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const author = {};
-        for(const field of e.target.elements) {
-            if(field.name && field.value) {
+        for (const field of e.target.elements) {
+            if (field.name && field.value) {
                 author[field.name] = field.value;
             }
         }
@@ -449,9 +469,17 @@ function renderAuthorForm(author){
                 return;
             }
         }
-        author.id = getMaxOfArray(arrayOfId()) + 1 ;
-        authors.push(author);
+
+        if (isCreate) {
+            author.id = getMaxOfArray(arrayOfId()) + 1;
+            authors.push(author);
+        } else {
+            authors[author.id] = author;
+        }
+
         localStorage.setItem('authors', JSON.stringify(authors));
+        alert('Done!');
+        renderBooks(getFilteredBooks());
 
         return false;
     });
@@ -460,7 +488,7 @@ function renderAuthorForm(author){
 function arrayOfId() {
     const authors = getAuthors();
     const array = [];
-    for (const  author of authors){
+    for (const author of authors) {
         array.push(author.id);
     }
     return array;
@@ -484,7 +512,7 @@ function init() {
     createAuthorFormButton();
 }
 
-addEventListener('DOMContentLoaded', function() {
+addEventListener('DOMContentLoaded', function () {
     init();
 });
 
