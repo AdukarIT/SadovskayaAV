@@ -275,7 +275,9 @@ function renderAuthor(id) {
     const btn = document.createElement('button');
     btn.textContent = "редактировать";
     btn.classList.add('button','button_edit');
-    btn.addEventListener('click', renderAuthorForm);
+    btn.addEventListener('click', function (e) {
+        renderAuthorForm(author);
+    });
     info.appendChild(btn);
 
     gallery.appendChild(article);
@@ -403,56 +405,56 @@ function addBook() {
 }
 
 
-function getAuthorForm() {
+function createAuthorFormButton() {
     const button = document.getElementById('addAuthor');
-    button.addEventListener('click', renderAuthorForm)
+    button.addEventListener('click', function (e){
+        renderAuthorForm({})
+    })
 }
 
+function renderAuthorForm(author){
+    clearGallery();
+    gallery.innerHTML = `
+          <div id="formContainer" class="formContainer">
+               <form method="post" name="addNewAuthor">
+                   <input name="name" value="${author.name}" required size="100%" type="text"  placeholder="Имя и фамилия автора" >
+                   <input name="birthday" value="${author.birthday}" required size="100%" type="datetime" placeholder="дата рождения в формате ДД-ММ-ГГ">
+                   <input name="deathdate" value="${author.deathdate}"  size="100%" type="datetime" placeholder="дата смерти в формате ДД-ММ-ГГ"">
+                   <input name="country" value="${author.country}" required size="100%" type="text" placeholder="страна (гражданство)">
+                   <input name="photo" value="${author.photo}" required size="100%" type="text" placeholder="ссылка на фотографию">
+                   <div class="button_container">
+                        <button class=" button button_create" type="submit">добавить автора</button>
+                        <button class="button button_reset-form" type="reset">очистить</button>
+                   </div>
+          </form>
+      </div>`;
 
-function renderAuthorForm() {
-        clearGallery();
-        const htmlForm = '' +
-            '  <div id="formContainer" class="formContainer">\n' +
-            '       <form method="post" name="addNewAuthor">\n' +
-            '           <input name="name" required size="100%" type="text"  placeholder="Имя и фамилия автора" >\n' +
-            '           <input name="birthday" required size="100%" type="datetime" placeholder="дата рождения в формате ДД-ММ-ГГ">\n' +
-            '           <input name="deathdate"  size="100%" type="datetime" placeholder="дата смерти в формате ДД-ММ-ГГ"">\n' +
-            '           <input name="country" required size="100%" type="text" placeholder="страна (гражданство)">\n' +
-            '           <input name="photo" required size="100%" type="text" placeholder="ссылка на фотографию">\n' +
-            '           <div class="button_container">\n'+
-            '                <button class=" button button_create" type="submit">добавить автора</button>\n' +
-            '                <button class="button button_reset-form" type="reset">очистить</button>\n'+
-            '           </div>\n'+
-        '      </form>\n' +
-        '  </div>';
-        gallery.innerHTML = htmlForm;
 
-        const formElement = document.forms.addNewAuthor;
+    const formElement = document.forms.addNewAuthor;
+    console.log(author);
+    formElement.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-        formElement.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const author = {};
-            for(const field of e.target.elements) {
-                if(field.name && field.value) {
-                    author[field.name] = field.value;
-                }
+        const author = {};
+        for(const field of e.target.elements) {
+            if(field.name && field.value) {
+                author[field.name] = field.value;
             }
+        }
 
-
-            const authors = getAuthors();
-            for (const oldAuthor of authors) {
-                if (oldAuthor.name == author.name) {
-                    alert("такой автор уже есть");
-                    return;
-                }
+        const authors = getAuthors();
+        for (const oldAuthor of authors) {
+            if (oldAuthor.name == author.name) {
+                alert("такой автор уже есть");
+                return;
             }
-            author.id = getMaxOfArray(arrayOfId()) + 1 ;
-            authors.push(author);
-            localStorage.setItem('authors', JSON.stringify(authors));
+        }
+        author.id = getMaxOfArray(arrayOfId()) + 1 ;
+        authors.push(author);
+        localStorage.setItem('authors', JSON.stringify(authors));
 
-            return false;
-        });
+        return false;
+    });
 }
 
 function arrayOfId() {
@@ -479,7 +481,7 @@ function init() {
     initSearch('text-to-find');
     renderBooks(getFilteredBooks());
     addBook();
-    getAuthorForm();
+    createAuthorFormButton();
 }
 
 addEventListener('DOMContentLoaded', function() {
