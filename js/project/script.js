@@ -373,7 +373,7 @@ function renderBookForm(book) {
                        <input name="name" value="${book.name}" required size="100%" type="text"  placeholder="название книги" >
                        <input name="published" value="${book.published}" required size="100%" type="number" placeholder="год публикации">
                        <input name="cover" value="${book.cover}" required size="100%" type="text" placeholder="ссылка на изображение обложки">
-                       <input name="genre" value="${book.genre.join(', ')}" required size="100%" type="text" placeholder="жанр">
+                       <input name="genre" id="choose_genre" value="${book.genre.join(', ')}" required size="100%" type="text" placeholder="жанр">
                        <textarea name="notes" size="100%" placeholder="цитаты из книги">${book.notes}</textarea>
                        <select id="choose_author">
                        </select>
@@ -390,7 +390,11 @@ function renderBookForm(book) {
     if(!isCreate){
         const btn = document.getElementById('submit_button');
         btn.textContent = 'изменить';
+
+        const chooseGenreButton = document.getElementById('choose_genre');
+        formElement.removeChild(chooseGenreButton);
         formElement.removeChild(select);
+
     }
 
 
