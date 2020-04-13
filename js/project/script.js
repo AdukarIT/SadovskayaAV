@@ -366,14 +366,15 @@ function renderBookForm(book) {
         isCreate = true;
         book = createEmptyBook();
     }
+    console.dir(book);
     gallery.innerHTML = `
               <div id="formContainer2" class="formContainer">
                    <form method="post" name="addNewBook" >
                        <input name="name" value="${book.name}" required size="100%" type="text"  placeholder="название книги" >
                        <input name="published" value="${book.published}" required size="100%" type="number" placeholder="год публикации">
                        <input name="cover" value="${book.cover}" required size="100%" type="text" placeholder="ссылка на изображение обложки">
-                       <input name="genre"value="${book.genre}" required size="100%" type="text" placeholder="жанр">
-                       <textarea name="notes" value="${book.notes}" size="100%" placeholder="цитаты из книги"></textarea>
+                       <input name="genre" value="${book.genre.join(', ')}" required size="100%" type="text" placeholder="жанр">
+                       <textarea name="notes" size="100%" placeholder="цитаты из книги">${book.notes}</textarea>
                        <select id="choose_author">
                        </select>
                        <div class="button_container">
@@ -383,13 +384,16 @@ function renderBookForm(book) {
                   </form>
               </div>`;
 
+    const formElement = document.forms.addNewBook;
+    const select = document.getElementById('choose_author');
+
     if(!isCreate){
         const btn = document.getElementById('submit_button');
-        btn.textContent = 'изменить'
+        btn.textContent = 'изменить';
+        formElement.removeChild(select);
     }
 
 
-    const select = document.getElementById('choose_author');
     for (const author of getAuthors()) {
         const option = document.createElement('option');
         option.value = author.id;
@@ -397,7 +401,7 @@ function renderBookForm(book) {
         select.appendChild(option);
     }
 
-    const formElement = document.forms.addNewBook;
+
 
     formElement.addEventListener('submit', function (e) {
 
