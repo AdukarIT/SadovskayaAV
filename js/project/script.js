@@ -509,10 +509,10 @@ function renderAuthorForm(author) {
                 author[field.name] = field.value;
             }
         }
-
+        const authors = getAuthors();
 
         if (isCreate) {
-            const authors = getAuthors();
+
             for (const oldAuthor of authors) {
                 if (oldAuthor.name == author.name) {
                     alert("такой автор уже есть");
