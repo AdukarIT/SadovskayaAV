@@ -226,6 +226,14 @@ function renderBook(id) {
         info.appendChild(quote);
     }
 
+    const btn = document.createElement('button');
+    btn.textContent = "редактировать";
+    btn.classList.add('button', 'button_edit');
+    btn.addEventListener('click', function (e) {
+        renderBookForm(book);
+    });
+    info.appendChild(btn);
+
 
     gallery.appendChild(article);
 
@@ -330,43 +338,71 @@ function setFilter(key, value) {
     localStorage.setItem('filters', JSON.stringify(filters));
 }
 
+function createEmptyBook() {
+    return  {
+        name: '',
+        published: '',
+        cover: '',
+        genre: [],
+        notes: [],
+        author: ''
+    }
+}
 
-function addBook() {
+
+function createBookFormButton() {
     const button = document.getElementById('addBook');
     button.addEventListener('click', function (e) {
-        clearGallery();
-        const htmlForm = '' +
-            '  <div id="formContainer2" class="formContainer">\n' +
-            '       <form method="post" name="addNewBook" >\n' +
-            '           <input name="name" required size="100%" type="text"  placeholder="название книги" >\n' +
-            '           <input name="published" required size="100%" type="number" placeholder="год публикации">\n' +
-            '           <input name="cover" required size="100%" type="text" placeholder="ссылка на изображение обложки">\n' +
-            '           <input name="genre" required size="100%" type="text" placeholder="жанр">\n' +
-            '           <textarea name="notes" size="100%" placeholder="цитаты из книги"></textarea>\n' +
-            '           <select id="choose_author">\n' +
-            '           </select>\n' +
-            '           <div class="button_container">\n' +
-            '                <button class=" button button_create" type="submit">добавить книгу</button>\n' +
-            '                <button class="button button_reset-form" type="reset">очистить</button>\n' +
-            '           </div>\n' +
-            '      </form>\n' +
-            '  </div>'
-        gallery.innerHTML = htmlForm;
+        renderBookForm()
+    })
+}
 
-        const select = document.getElementById('choose_author');
-        for (const author of getAuthors()) {
-            const option = document.createElement('option');
-            option.value = author.id;
-            option.textContent = author.name;
-            select.appendChild(option);
-        }
+function renderBookForm(book) {
+    clearGallery();
 
-        const formElement = document.forms.addNewBook;
+    let isCreate = false;
 
-        formElement.addEventListener('submit', function (e) {
-            e.preventDefault();
+    if(!book){
+        isCreate = true;
+        book = createEmptyBook();
+    }
+    gallery.innerHTML = `
+              <div id="formContainer2" class="formContainer">
+                   <form method="post" name="addNewBook" >
+                       <input name="name" value="${book.name}" required size="100%" type="text"  placeholder="название книги" >
+                       <input name="published" value="${book.published}" required size="100%" type="number" placeholder="год публикации">
+                       <input name="cover" value="${book.cover}" required size="100%" type="text" placeholder="ссылка на изображение обложки">
+                       <input name="genre"value="${book.genre}" required size="100%" type="text" placeholder="жанр">
+                       <textarea name="notes" value="${book.notes}" size="100%" placeholder="цитаты из книги"></textarea>
+                       <select id="choose_author">
+                       </select>
+                       <div class="button_container">
+                            <button id="submit_button" class=" button button_create" type="submit">добавить книгу</button>
+                            <button class="button button_reset-form" type="reset">очистить</button>
+                       </div>
+                  </form>
+              </div>`;
 
-            const book = {};
+    if(!isCreate){
+        const btn = document.getElementById('submit_button');
+        btn.textContent = 'изменить'
+    }
+
+
+    const select = document.getElementById('choose_author');
+    for (const author of getAuthors()) {
+        const option = document.createElement('option');
+        option.value = author.id;
+        option.textContent = author.name;
+        select.appendChild(option);
+    }
+
+    const formElement = document.forms.addNewBook;
+
+    formElement.addEventListener('submit', function (e) {
+
+        e.preventDefault();
+        console.log(book);
             for (const field of e.target.elements) {
                 if (field.name && field.value) {
                     console.log(field.name, field.value);
@@ -377,32 +413,44 @@ function addBook() {
                         book[field.name] = genre;
                         continue;
                     }
+                    if (field.name === 'notes') {
+                        let notes = [];
+                        notes.push(field.value);
+
+                        book[field.name] = notes;
+                        continue;
+                    }
                     book[field.name] = field.value;
                 }
             }
 
             const books = getBooks();
-            for (const oldBook of books) {
-                if (oldBook.name == book.name) {
-                    alert("такая книга уже есть");
-                    return;
+            if (isCreate) {
+                for (const oldBook of books) {
+                    if (oldBook.name == book.name) {
+                        alert("такая книга уже есть");
+                        return;
+                    }
                 }
+
+                const authors = getAuthors();
+                for (const author of authors) {
+                    book.author = author.id;
+                }
+                books.push(book);
             }
 
-
-            const authors = getAuthors();
-            for (const author of authors) {
-                book.author = author.id;
+            else {
+                books[book.id - 1] = book;
             }
 
-            books.push(book);
-            console.log(book);
             localStorage.setItem('books', JSON.stringify(books));
+
+        alert('Done!');
+        renderBooks(getFilteredBooks());
 
             return false;
         });
-
-    })
 }
 
 
@@ -462,15 +510,15 @@ function renderAuthorForm(author) {
             }
         }
 
-        const authors = getAuthors();
-        for (const oldAuthor of authors) {
-            if (oldAuthor.name == author.name) {
-                alert("такой автор уже есть");
-                return;
-            }
-        }
 
         if (isCreate) {
+            const authors = getAuthors();
+            for (const oldAuthor of authors) {
+                if (oldAuthor.name == author.name) {
+                    alert("такой автор уже есть");
+                    return;
+                }
+            }
             author.id = getMaxOfArray(arrayOfId()) + 1;
             authors.push(author);
         } else {
@@ -508,7 +556,7 @@ function init() {
     initGenre();
     initSearch('text-to-find');
     renderBooks(getFilteredBooks());
-    addBook();
+    createBookFormButton();
     createAuthorFormButton();
 }
 
