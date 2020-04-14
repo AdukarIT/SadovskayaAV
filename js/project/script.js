@@ -395,6 +395,8 @@ function renderBookForm(book) {
         formElement.removeChild(chooseGenreButton);
         formElement.removeChild(select);
 
+        
+
     }
 
 
