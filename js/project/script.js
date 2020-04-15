@@ -165,23 +165,21 @@ function initCountries() {
 function initGenre() {
     const select = document.getElementById('genres');
     const empty = document.createElement('option');
+    const genres = getGenres();
     select.appendChild(empty);
-    const uniq = [];
-    for (const book of getBooks()) {
-        for (const genre of book.genre) {
-            if (!uniq.includes(genre)) {
-                const option = document.createElement('option');
-                option.textContent = genre;
-                uniq.push(genre);
-                select.appendChild(option);
-                if (getFilters().genre == genre) {
-                    option.selected = true
-                }
-            }
+    for (const genre of genres) {
+        const option = document.createElement('option');
+        option.value = genre.id;
+        option.textContent = genre.name;
+
+        if (getFilters().genre === genre.id){
+            option.selected = true;
         }
+
+        select.appendChild(option);
     }
     select.addEventListener('change', function (e) {
-        setFilter('genre', e.target.selectedOptions[0].value);
+        setFilter('genre',parseInt(e.target.selectedOptions[0].value));
         renderBooks(getFilteredBooks());
     })
 }
@@ -328,6 +326,10 @@ function getAuthors() {
     return JSON.parse(localStorage.getItem('authors'));
 }
 
+function getGenres(){
+    return JSON.parse(localStorage.getItem('genres'))
+}
+
 function getFilters() {
     return JSON.parse(localStorage.getItem('filters'));
 }
@@ -395,7 +397,7 @@ function renderBookForm(book) {
         formElement.removeChild(chooseGenreButton);
         formElement.removeChild(select);
 
-        
+
 
     }
 
@@ -561,6 +563,7 @@ function init() {
     initLocalStorage('books', JSON.stringify(db.books));
     initLocalStorage('authors', JSON.stringify(db.authors));
     initLocalStorage('filters', JSON.stringify(FILTERS));
+    initLocalStorage('genres', JSON.stringify(db.genres));
     initRangeSlider('yearsRange');
     initCountries();
     initGenre();
@@ -573,4 +576,3 @@ function init() {
 addEventListener('DOMContentLoaded', function () {
     init();
 });
-
