@@ -1,4 +1,5 @@
-const db = {
+let db;
+export default db = {
     authors: [
         {
             id: 0,

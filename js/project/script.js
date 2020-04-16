@@ -184,6 +184,14 @@ function initGenre() {
     })
 }
 
+function getGenreById(id) {
+    const genres = getGenres();
+    for (const g of genres) {
+        if (g.id === id) return g.name;
+    }
+}
+
+
 function renderBook(id) {
     clearGallery();
     const book = getBook(id);
@@ -214,9 +222,15 @@ function renderBook(id) {
     published.textContent = 'Год публикации: ' + book.published;
     info.appendChild(published);
 
+
     const genre = document.createElement('p');
-    genre.textContent = "Жанр: " + book.genre;
+    let genreNames = [];
+    book.genre.forEach(function (id) {
+        genreNames.push(getGenreById(id));
+    });
+    genre.textContent = 'Жанр : ' + genreNames.join(', ');
     info.appendChild(genre);
+
 
     const quote = document.createElement('p');
     if (book.notes) {
@@ -375,7 +389,7 @@ function renderBookForm(book) {
                        <input name="name" value="${book.name}" required size="100%" type="text"  placeholder="название книги" >
                        <input name="published" value="${book.published}" required size="100%" type="number" placeholder="год публикации">
                        <input name="cover" value="${book.cover}" required size="100%" type="text" placeholder="ссылка на изображение обложки">
-                       <input name="genre" id="choose_genre" value="${book.genre.join(', ')}" required size="100%" type="text" placeholder="жанр">
+                       <select id="choose_genre"></select>
                        <textarea name="notes" size="100%" placeholder="цитаты из книги">${book.notes}</textarea>
                        <select id="choose_author">
                        </select>
@@ -388,7 +402,7 @@ function renderBookForm(book) {
 
     const formElement = document.forms.addNewBook;
     const select = document.getElementById('choose_author');
-
+    const selectGenre = document.getElementById('choose_genre');
     if(!isCreate){
         const btn = document.getElementById('submit_button');
         btn.textContent = 'изменить';
@@ -396,10 +410,20 @@ function renderBookForm(book) {
         const chooseGenreButton = document.getElementById('choose_genre');
         formElement.removeChild(chooseGenreButton);
         formElement.removeChild(select);
+    }
 
-
+    for (const genre of getGenres()){
+        const optionGenre = document.createElement('option');
+        optionGenre.value = genre.id;
+        optionGenre.textContent = genre.name;
+        selectGenre.appendChild(optionGenre);
 
     }
+    $(selectGenre).val(null).select2({
+        multiple: true,
+        placeholder: "Select a genre",
+        tags: true,
+    });
 
 
     for (const author of getAuthors()) {
@@ -418,13 +442,6 @@ function renderBookForm(book) {
             for (const field of e.target.elements) {
                 if (field.name && field.value) {
                     console.log(field.name, field.value);
-                    if (field.name === 'genre') {
-                        let genre = [];
-                        genre.push(field.value);
-
-                        book[field.name] = genre;
-                        continue;
-                    }
                     if (field.name === 'notes') {
                         let notes = [];
                         notes.push(field.value);
