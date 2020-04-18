@@ -1,5 +1,4 @@
-let db;
-export default db = {
+const db = {
     authors: [
         {
             id: 0,
@@ -148,7 +147,6 @@ export default db = {
             cover: 'https://upload.wikimedia.org/wikipedia/ru/9/9d/100years.jpg',
             genre: [1],
             notes: [],
-            read: 2020,
             author: 0,
             id: 1,
         },

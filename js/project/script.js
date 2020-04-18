@@ -194,6 +194,7 @@ function getGenreById(id) {
 
 function renderBook(id) {
     clearGallery();
+    console.log(id);
     const book = getBook(id);
     const article = document.createElement("article");
     article.classList.add("article");
@@ -202,6 +203,7 @@ function renderBook(id) {
     div.classList.add('about_book');
     article.appendChild(div);
 
+    console.log(book);
     const img = new Image();
     img.src = book.cover;
     img.alt = book.name;
@@ -385,13 +387,13 @@ function renderBookForm(book) {
     console.dir(book);
     gallery.innerHTML = `
               <div id="formContainer2" class="formContainer">
-                   <form method="post" name="addNewBook" >
+                   <form name="addNewBook" action="/save-book">
                        <input name="name" value="${book.name}" required size="100%" type="text"  placeholder="название книги" >
                        <input name="published" value="${book.published}" required size="100%" type="number" placeholder="год публикации">
                        <input name="cover" value="${book.cover}" required size="100%" type="text" placeholder="ссылка на изображение обложки">
-                       <select id="choose_genre"></select>
+                       <select id="choose_genre" name="genre"></select>
                        <textarea name="notes" size="100%" placeholder="цитаты из книги">${book.notes}</textarea>
-                       <select id="choose_author">
+                       <select id="choose_author" name="author">
                        </select>
                        <div class="button_container">
                             <button id="submit_button" class=" button button_create" type="submit">добавить книгу</button>
@@ -433,53 +435,57 @@ function renderBookForm(book) {
         select.appendChild(option);
     }
 
-
-
     formElement.addEventListener('submit', function (e) {
-
         e.preventDefault();
-        console.log(book);
-            for (const field of e.target.elements) {
-                if (field.name && field.value) {
-                    console.log(field.name, field.value);
-                    if (field.name === 'notes') {
-                        let notes = [];
-                        notes.push(field.value);
+        console.log(e);
+        for (const field of e.target.elements) {
+            if (!field.name || !field.value) {
+                continue;
+            }
 
-                        book[field.name] = notes;
-                        continue;
+            switch (field.name) {
+                case 'notes':
+                    let notes = [];
+                    notes.push(field.value);
+
+                    book[field.name] = notes;
+                    break;
+                case 'genre':
+                    book.genre = [];
+                    for(const option of field.selectedOptions) {
+                        book.genre.push(parseInt(option.value));
                     }
+                    break;
+                default:
                     book[field.name] = field.value;
+            }
+        }
+
+        const books = getBooks();
+        if (isCreate) {
+            for (const oldBook of books) {
+                if (oldBook.name == book.name) {
+                    alert("такая книга уже есть");
+                    return;
                 }
             }
 
-            const books = getBooks();
-            if (isCreate) {
-                for (const oldBook of books) {
-                    if (oldBook.name == book.name) {
-                        alert("такая книга уже есть");
-                        return;
-                    }
-                }
+            book.id = getMaxOfArray(arrayOfBookId()) + 1;
 
-                const authors = getAuthors();
-                for (const author of authors) {
-                    book.author = author.id;
-                }
-                books.push(book);
-            }
+            books.push(book);
+        }
+        else {
+            books[book.id - 1] = book;
+        }
 
-            else {
-                books[book.id - 1] = book;
-            }
-
-            localStorage.setItem('books', JSON.stringify(books));
+        console.log(book);
+        localStorage.setItem('books', JSON.stringify(books));
 
         alert('Done!');
         renderBooks(getFilteredBooks());
 
-            return false;
-        });
+        return false;
+    });
 }
 
 
@@ -571,9 +577,21 @@ function arrayOfId() {
     return array;
 }
 
+function arrayOfBookId() {
+    const books = getBooks();
+    const booksIdArray = [];
+    for (const book of books) {
+        booksIdArray.push(book.id);
+    }
+
+    return booksIdArray;
+
+}
+
 function getMaxOfArray(array) {
     return Math.max.apply(null, array);
 }
+
 
 
 function init() {
