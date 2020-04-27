@@ -410,7 +410,6 @@ function renderBookForm(book) {
         btn.textContent = 'изменить';
 
         const chooseGenreButton = document.getElementById('choose_genre');
-        formElement.removeChild(chooseGenreButton);
         formElement.removeChild(select);
     }
 
@@ -426,7 +425,22 @@ function renderBookForm(book) {
         placeholder: "Select a genre",
         tags: true,
     });
+    $(selectGenre).on('select2:selecting', function (e) {
 
+        const genreInfo = e.params.args.data;
+        let genre = getGenreByName(genreInfo.text);
+
+        if(genre) return;
+
+        genre = createGenre(genreInfo.text);
+
+        genreInfo.id = genre.id;
+
+        const option = document.createElement('option');
+        option.value = genreInfo.id;
+        option.innerText = genreInfo.text;
+        e.currentTarget.appendChild(option);
+    });
 
     for (const author of getAuthors()) {
         const option = document.createElement('option');
@@ -437,7 +451,6 @@ function renderBookForm(book) {
 
     formElement.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log(e);
         for (const field of e.target.elements) {
             if (!field.name || !field.value) {
                 continue;
@@ -478,7 +491,6 @@ function renderBookForm(book) {
             books[book.id - 1] = book;
         }
 
-        console.log(book);
         localStorage.setItem('books', JSON.stringify(books));
 
         alert('Done!');
@@ -486,6 +498,27 @@ function renderBookForm(book) {
 
         return false;
     });
+}
+
+function createGenre(name) {
+    const newGenre = {};
+    newGenre.id = getMaxOfArray(arrayOfGenreId()) + 1;
+    newGenre.name = name;
+
+    const genres = getGenres();
+    genres.push(newGenre);
+    localStorage.setItem('genres', JSON.stringify(genres));
+
+    return newGenre;
+}
+
+function getGenreByName(genreName) {
+    const genres = getGenres();
+    for (const genre of genres){
+        if (genre.name === genreName){
+            return genre;
+        }
+    }
 }
 
 
@@ -583,10 +616,18 @@ function arrayOfBookId() {
     for (const book of books) {
         booksIdArray.push(book.id);
     }
-
     return booksIdArray;
-
 }
+
+function arrayOfGenreId() {
+    const genres = getGenres();
+    const genresIdArray = [];
+    for (const genre of genres) {
+        genresIdArray.push(genre.id);
+    }
+    return genresIdArray;
+}
+
 
 function getMaxOfArray(array) {
     return Math.max.apply(null, array);
